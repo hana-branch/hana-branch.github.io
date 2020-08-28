@@ -8,64 +8,67 @@
     
     <!-- Branch SDK -->
     <script type="text/javascript">
+
+      window.location.href = 'https://www.boohoo.com/woven-panelled-peplum-top/FZZ52326-173-14.html';
+
     
       // load Branch
-      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
+      // (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
 
-      let options = {}
+      // let options = {}
 
-      // init Branch
-      branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', options, function(err, data) {
-        if (err == null) {
-          console.log(data);
+      // // init Branch
+      // branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', options, function(err, data) {
+      //   if (err == null) {
+      //     console.log(data);
 
-       }
-        else {
-          console.log("ERROR : " + err);
-        }
-      });
+      //  }
+      //   else {
+      //     console.log("ERROR : " + err);
+      //   }
+      // });
 
-      var event_and_custom_data = {
-         "transaction_id": "tras_Id_1232343434",
-         "currency": "USD",
-         "revenue": 180.2,
-         "shipping": 10.5,
-         "tax": 13.5,
-         "coupon": "promo-1234",
-         "affiliation": "high_fi",
-         "description": "Preferred purchase",
-         "purchase_loc": "Palo Alto",
-         "store_pickup": "unavailable"
-      };
+      // var event_and_custom_data = {
+      //    "transaction_id": "tras_Id_1232343434",
+      //    "currency": "USD",
+      //    "revenue": 180.2,
+      //    "shipping": 10.5,
+      //    "tax": 13.5,
+      //    "coupon": "promo-1234",
+      //    "affiliation": "high_fi",
+      //    "description": "Preferred purchase",
+      //    "purchase_loc": "Palo Alto",
+      //    "store_pickup": "unavailable"
+      // };
 
-      var content_items = [
-        {
-          "$content_schema": "COMMERCE_PRODUCT",
-          "$og_title": "Nike Shoe",
-          "$og_description": "Start loving your steps",
-          "$og_image_url": "http://example.com/img1.jpg",
-          "$canonical_identifier": "nike/1234",
-          "$price": 101.2,
-          "$quantity": 1,
-          "$sku": null,
-          "$product_name": null,
-          "$product_brand": null,
-          "$product_category": "Sporting Goods",
-          "$product_variant": "XL",
-          "$rating_average": 4.2,
-          "$rating_count": 5
-        }
-      ];
+      // var content_items = [
+      //   {
+      //     "$content_schema": "COMMERCE_PRODUCT",
+      //     "$og_title": "Nike Shoe",
+      //     "$og_description": "Start loving your steps",
+      //     "$og_image_url": "http://example.com/img1.jpg",
+      //     "$canonical_identifier": "nike/1234",
+      //     "$price": 101.2,
+      //     "$quantity": 1,
+      //     "$sku": null,
+      //     "$product_name": null,
+      //     "$product_brand": null,
+      //     "$product_category": "Sporting Goods",
+      //     "$product_variant": "XL",
+      //     "$rating_average": 4.2,
+      //     "$rating_count": 5
+      //   }
+      // ];
 
-      var customer_event_alias = "PURCHASE";
+      // var customer_event_alias = "PURCHASE";
 
-      branch.logEvent(
-         "PURCHASE",
-         event_and_custom_data,
-         content_items,
-         customer_event_alias,
-         function(err) { console.log(err); }
-      );
+      // branch.logEvent(
+      //    "PURCHASE",
+      //    event_and_custom_data,
+      //    content_items,
+      //    customer_event_alias,
+      //    function(err) { console.log(err); }
+      // );
 
 
     </script>
