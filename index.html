@@ -58,67 +58,25 @@
         });
       };
 
-      function unescapeHtml(escaped_str) {
-        var div = document.createElement('div');
-        div.innerHTML = escaped_str;
-        var child = div.childNodes[0];
-        return child ? child.nodeValue : null;
-    }
-    
-    function validateProtocol(url) {
-      var parser = document.createElement('a');
-        parser.href = url;
-        var protocol = parser.protocol.toLowerCase();
-      if ([ 'javascript:',  'vbscript:',  'data:', 'ftp:',':' , ' '].indexOf(protocol) < 0) {
-        return url;
-      }
-      return null;
-    }
-    
-    function validate(url) {
-      var unescaped_value = unescapeHtml(url);
-      if (unescaped_value && validateProtocol(unescaped_value)) {
-        return unescaped_value;
-      }
-      return '/';
-    }
-      window.onload = function() {
-        var a = "monster/view/?link_click_id=839658717587277960";
-        var b = "branchsters://";
+      (function() {
 
-        var fallbackFunction = function() {
-          if (document.webkitHidden || document.hidden) { return; }
-          window.top.location.replace(validate("market://details?id=io.branch.branchster&amp;%24android_passive_deepview=false&amp;_branch_match_id=839658717587277960&amp;referrer=link_click_id%253D839658717587277960%2526utm_source%253DGmail%2526utm_medium%253DmyMonsterSharefeature1%2526af_ref%253Dbranch_839658717671164047"));
-        };
-        var addIFrame = function() {
-          var iframe = document.createElement("iframe");
-          iframe.style.border = "none";
-          iframe.style.width = "1px";
-          iframe.style.height = "1px";
-          iframe.src = validate(b + a);
-          document.body.appendChild(iframe);
-        };
-        if ((navigator.userAgent.match(/Chrome/) && navigator.userAgent.match("Version/")) ||
-            navigator.userAgent.match("\\[FB") ||
-            navigator.userAgent.match("Instagram")) {
-          var setURIFunction = function() {
-            addIFrame();
-            setTimeout(fallbackFunction, 750-250);
-          };
-          setTimeout(setURIFunction, 250);
-          return;
-        }
-        else if (navigator.userAgent.match("KAKAO") ||
-              navigator.userAgent.match("NAVER") ||
-              navigator.userAgent.match("Firefox")) {
-          addIFrame();
-        }
-        else if (!(navigator.userAgent.match("OPR") && !navigator.userAgent.match("Android 8"))) {
-          window.top.location.replace(validate(b + a));
-        }
-        setTimeout(fallbackFunction, 750);
+        window.currentUseragent = '';
+        
+        window.setInterval(function() {
+            var userAgent = navigator.userAgent;
+            console.log('Running: ', userAgent);
+            if (!(window.currentUseragent === userAgent)) {
+                window.currentUseragent = userAgent;
+                var markup = "<h1>User agent</h1>";
+                markup += "<p class='animated bounceIn'>" + currentUseragent +  "</p>" ;
 
-      }
+                markup += "<h1>Document</h1>" + "<p class='animated bounceIn'>" + document.webkitHidden +  "</p>" ;
+                 markup += document.hidden +  "</p>" ;
+                document.body.innerHTML = markup;
+            }
+        }, 50);
+        
+    }());
      </script>
     <style>
         body {
