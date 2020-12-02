@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Web SDK TEST</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
+
+    <!-- DEEPVIEW} -->
+    <script type="text/javascript">
+      // load Branch
+      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
+
+      // init Branch
+      branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {'tracking_disabled' : true}, function(err, data) {
+        console.log(err, data);
+      });
+
+      //create deep link
+
+      var createLink = function() {
+        var linkData = {
+          campaign: 'content 123',
+          channel: 'facebook',
+          feature: 'dashboard',
+          stage: 'new user',
+          tags: [ 'tag1', 'tag2', 'tag3' ],
+          alias: '',
+          data: {
+            'custom_bool': true,
+            'custom_int': Date.now(),
+            'custom_string': 'hello',
+            '$og_title': 'Title',
+            '$og_description': 'Description',
+            '$og_image_url':'http://lorempixel.com/400/400'
+          }
+        };
+
+        branch.link(linkData, function(err, link) {
+          document.getElementById("createdLinkValue").value = link;
+        });
+      }
+    </script>
+    <style>
+        body {
+          font-family: 'Roboto', sans-serif;
+        }
+        .image {
+            padding: 50px;
+            max-width: 400px;
+            margin: auto;
+        }
+        .create-link {
+          margin: 20px 15px;
+        }
+
+        .create-btn {
+          height: 50px;
+          margin: auto;
+        }
+
+        #createdLinkValue {
+          word-wrap: break-word;
+          height: 200px;
+        }
+
+    </style>
+  </head>
+  <body class="text-center" data-gr-c-s-loaded="true">
+    <div class="container">
+        <div class="image">
+          <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png">
+        </div>
+        <div class="form-group row create-link">
+          <button for="createdLinkValue" class="col-md-2 col-form-label btn btn-primary create-btn" onclick="createLink()">Create Link</button>
+          <div class="col-md-10">
+            <textarea class="form-control" id="createdLinkValue" readonly></textarea>
+          </div>
+        </div>
+    </div>
+  </body>
+</html>
