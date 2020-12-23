@@ -30,7 +30,7 @@
       var intervalExecuted = false;
       window.onload = function() {
           console.log("onload");
-          console.log("hasURI : " + hasURI + " / intervalExecuted :" + intervalExecuted);
+          console.log("hasURI : " + hasURI + " / intervalExecuted : " + intervalExecuted);
           document.getElementById("l").src = validate("paltalk://group/4413433?link_click_id=870433049124648778");
           window.alert("HELLO WORLD");
           
@@ -44,13 +44,13 @@
 
       window.onblur = function() {
           console.log("onblur");
-          console.log("hasURI : " + hasURI + " / intervalExecuted :" + intervalExecuted);
+          console.log("hasURI : " + hasURI + " / intervalExecuted : " + intervalExecuted);
           hasURI = true;
       };
 
       window.onfocus = function() {
-          console.log("onfocus");
-          console.log("hasURI : " + hasURI + " / intervalExecuted :" + intervalExecuted);
+          console.log("onfocus"); 
+          console.log("hasURI : " + hasURI + " / intervalExecuted : " + intervalExecuted);
           if (hasURI) {
               window.top.location = validate("https://www.paltalk.com/?_branch_match_id=870433049124648778");
           } else if (intervalExecuted) {
