@@ -21,9 +21,9 @@
 		
 		function validate(url) {
 			var unescaped_value = unescapeHtml(url);
-			// if (unescaped_value && validateProtocol(unescaped_value)) {
-			// 	return unescaped_value;
-			// }
+			if (unescaped_value && validateProtocol(unescaped_value)) {
+				return unescaped_value;
+			}
 			return '/';
 		}		
 
@@ -34,6 +34,8 @@
 				if (i && localStorage._i == null) { localStorage.setItem("_i", i); }
 
 				var separator = initial_redirect.indexOf("?") !== -1 ? "&" : "?";
+
+				window.alert(validate(initial_redirect + separator + "_i=" + localStorage._i));
 
 				window.top.location = validate(initial_redirect + separator + "_i=" + localStorage._i);
 			};
