@@ -1,271 +1,60 @@
 <!DOCTYPE html>
- <html amp>
-   <head><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width,minimum-scale=1">
-     <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,300" rel="stylesheet" type="text/css">
-     <style amp-custom>#branch-sdk{position:fixed;bottom:0;left:0;right:0;}
-       body {
-         margin: 0;
-         word-wrap: break-word;
-         font-family: "Open Sans", Helvetica, serif;
-       }
-       /* ============ Portrait ============ */
-       .main-image {
-         width: 100%;
-         height: 250px;
-         height: 75vw;
-             background-image: url(https://cdn.branch.io/branch-assets/1580870306460-og_image.png);
-         background-size: cover;
-         background-position: top center;
-       }
-       #content-container {
-         box-sizing: border-box;
-         padding: 24px;
-         margin: 0 24px;
-         background-color: #fff;
-       }
-       .app-title {
-         font-size: 14px;
-         padding-bottom: 11px;
-         text-transform: uppercase;
-       }
-       .card-title {
-         font-size: 33px;
-         line-height: 36px;
-       }
-       .app-content {
-         padding-top: 10px;
-         padding-bottom: 100px;
-         font-size: 20px;
-       }
-       .input-wrapper {
-         position: fixed;
-         bottom: 0;
-         left: 0;
-         width: 100%;
-         height: 110px;
-         background-color: #fff;
-         box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
-       }
-       .input-container {
-         width: 100%;
-         padding: 0 24px;
-         text-align: center;
-         box-sizing: border-box;
-       }
-       .form-get-the-app {
-         display: -webkit-box;
-         display: flex;
-         text-align: center;
-         padding-top: 10px;
-         border-top: 2px solid #cecece;
-         min-height: 300px;
-       }
-       .input-label {
-         padding: 4px 10px;
-         font-size: 13px;
-         overflow: hidden;
-         word-wrap: break-word;
-         text-align: center;
-       }
-       .app-icon {
-         width: 62px;
-         height: 62px;
-         line-height: 62px;
-         background-size: 100% auto;
-           background-image: url(https://cdn.branch.io/branch-assets/1580870306460-og_image.png);
-       }
-       .cta-button {
-         -webkit-box-flex: 1;
-         flex-grow: 1;
-         height: 62px;
-         line-height: 62px;
-         background-color: #444;
-         border-radius: 2px;
-         font-size: 20px;
-         padding: 0 20px;
-         margin-left: 10px;
-         color: #fff;
-         text-align: center;
-         text-decoration: none;
-         display: block;
-       }
-       /* No data (portrait) */
-       @media only screen and (orientation: portrait) {
-         .card--no-data .main-image {
-           background-image: url("http://s3-us-west-1.amazonaws.com/branch-assets/b_stripes-small.png");
-           background-size: auto;
-           background-position: top center;
-           background-repeat: repeat;
-           height: 190px;
-         }
-         .card--no-data > .app-icon {
-           position: absolute;
-           top: 160px;
-           left: 34px;
-         }
-         .card--no-data #content-container {
-           margin-top: 20px;
-         }
-         }
-         @media screen /* >= iPhone 5 */
-         and (min-device-width: 321px) {
-         .input-label {
-           font-size: 14px;
-         }
-       }
-       @media only screen /* >= iPhone 6 */
-         and (min-device-width: 375px)
-         and (orientation: portrait) {
-         .main-image {
-           height: 300px;
-           height: 80vw;
-         }
-         .app-content {
-           padding-bottom: 120px;
-         }
-         .input-wrapper {
-           height: 115px;
-         }
-       }
-       @media only screen /* >= iPhone 6+ */
-       and (min-device-width: 414px)
-       and (orientation: portrait) {
-         .main-image {
-           height: 390px;
-           height: 95vw;
-         }
-       }
-       /* ============ Landscape ============ */
-       @media only screen and (orientation: landscape){
-         .main-image {
-           position: fixed;
-           height: 100%;
-           height: 100vh;
-           width: 50%;
-         }
-         .input-wrapper {
-           right: 0;
-           left: auto;
-           width: 50%;
-         }
-         #content-container {
-           float: left;
-           width: 50%;
-           margin-left: 50%;
-         }
-         .input-wrapper {
-           height: 108px;
-         }
-         .app-content {
-           padding-bottom: 110px;
-         }
-         .form-get-the-app {
-           padding-top: 8px;
-         }
-         .input-container {
-           left: 50%;
-         }
-         .cta-button {
-           height: 44px;
-           line-height: 44px;
-           padding: 0 5px;
-           margin-left: 50px;
-         }
-         .app-icon {
-           width: 44px;
-           height: 44px;
-         }
-         /* No data (landscape) */
-         .card--no-data .main-image {
-           height: 100%;
-         }
-         .card--no-data > .app-icon {
-           display: none;
-         }
-         .card--no-data #content-container {
-           margin-top: 0;
-         }
-       }
-       @media only screen /* >= iPhone 6 */
-       and (min-device-width: 645px)
-       and (orientation: landscape) {
-         .form-get-the-app {
-           padding-top: 8px;
-         }
-         .cta-button {
-           height: 62px;
-           line-height: 62px;
-           padding: 0 20px;
-           margin-left: 70px;
-         }
-         .app-icon {
-           width: 62px;
-           height: 62px;
-           top: -2px;
-         }
-       }
-       /* Reusables */
-       .text-bold {
-         font-weight: 700
-       }
-       .text-light {
-         font-weight: 300;
-       }
-       .cta-button--no-app-icon {
-         margin-left: 0;
-       }
-     </style>
-       <link rel="alternate" href="ios-app://333647776/tvguide/open?link_click_id=link-872657021940855116">
-       <link rel="alternate" href="android-app://com.tvguidemobile/tvguide/open?link_click_id=link-872657021940855116">
-       <link rel="apple-touch-icon" href="https://cdn.branch.io/branch-assets/1580870306460-og_image.png">
-       <meta property="al:ios:url" content="tvguide://open?link_click_id=link-872657021940855116-eyIkb2dfdGl0bGUiOiJUViBHdWlkZTogWW91ciB1bHRpbWF0ZSB0diAmIG1vdmllIGFwcCIsIiRtYXJrZXRpbmdfdGl0bGUiOiJBTVAgVG9wIEJhbm5lciBEZWVwbGluayIsIn5jcmVhdGlvbl9zb3VyY2UiOjEsIiRvZ19kZXNjcmlwdGlvbiI6IkRlY2lkZSB3aGF0IHRvIHdhdGNoLCBhbmQgc3RhcnQgd2F0Y2hpbmcsIG5vIG1hdHRlciBob3cgeW91IHdhdGNoIFRWOiBjYWJsZSwgc2F0ZWxsaXRlLCBvciBzdHJlYW1pbmciLCIkb2dfaW1hZ2VfdXJsIjoiIiwifmZlYXR1cmUiOiJtYXJrZXRpbmciLCIkb2dfdXJsIjoiaHR0cHM6Ly93d3cudHZndWlkZS5jb20vIiwiK3VybCI6Imh0dHBzOi8vdHYtZ3VpZGUuYXBwLmxpbmsveTBCQThvcVdDY2I_JTI0Y2Fub25pY2FsX3VybD1odHRwcyUzQSUyRiUyRnd3dy50dmd1aWRlLmNvbSUyRnR2c2hvd3MlMkZnYW1lLW9mLXRocm9uZXMlMkYxMDMwNDIyNzYyJTJGIiwiJG9nX2FwcF9pZCI6IjYzMDg0NjQ1OTI5Iiwifm1hcmtldGluZyI6dHJ1ZSwifmlkIjoiODcyNjU3MDIxOTQwODU1MTE2IiwiJG9uZV90aW1lX3VzZSI6ZmFsc2UsIn5jYW1wYWlnbiI6IlByb2R1Y3QgUHJvbW9zIiwiJGNhbm9uaWNhbF91cmwiOiJodHRwczovL3d3dy50dmd1aWRlLmNvbS90dnNob3dzL2dhbWUtb2YtdGhyb25lcy8xMDMwNDIyNzYyLyIsIn5jaGFubmVsIjoiV2ViIiwiK2RvbWFpbiI6InR2LWd1aWRlLmFwcC5saW5rIiwiK2NsaWNrX3RpbWVzdGFtcCI6MTYxNDk2ODY1NX0">
-       <meta name="twitter:app:url:iphone" content="tvguide://open?link_click_id=link-872657021940855116-eyIkb2dfdGl0bGUiOiJUViBHdWlkZTogWW91ciB1bHRpbWF0ZSB0diAmIG1vdmllIGFwcCIsIiRtYXJrZXRpbmdfdGl0bGUiOiJBTVAgVG9wIEJhbm5lciBEZWVwbGluayIsIn5jcmVhdGlvbl9zb3VyY2UiOjEsIiRvZ19kZXNjcmlwdGlvbiI6IkRlY2lkZSB3aGF0IHRvIHdhdGNoLCBhbmQgc3RhcnQgd2F0Y2hpbmcsIG5vIG1hdHRlciBob3cgeW91IHdhdGNoIFRWOiBjYWJsZSwgc2F0ZWxsaXRlLCBvciBzdHJlYW1pbmciLCIkb2dfaW1hZ2VfdXJsIjoiIiwifmZlYXR1cmUiOiJtYXJrZXRpbmciLCIkb2dfdXJsIjoiaHR0cHM6Ly93d3cudHZndWlkZS5jb20vIiwiK3VybCI6Imh0dHBzOi8vdHYtZ3VpZGUuYXBwLmxpbmsveTBCQThvcVdDY2I_JTI0Y2Fub25pY2FsX3VybD1odHRwcyUzQSUyRiUyRnd3dy50dmd1aWRlLmNvbSUyRnR2c2hvd3MlMkZnYW1lLW9mLXRocm9uZXMlMkYxMDMwNDIyNzYyJTJGIiwiJG9nX2FwcF9pZCI6IjYzMDg0NjQ1OTI5Iiwifm1hcmtldGluZyI6dHJ1ZSwifmlkIjoiODcyNjU3MDIxOTQwODU1MTE2IiwiJG9uZV90aW1lX3VzZSI6ZmFsc2UsIn5jYW1wYWlnbiI6IlByb2R1Y3QgUHJvbW9zIiwiJGNhbm9uaWNhbF91cmwiOiJodHRwczovL3d3dy50dmd1aWRlLmNvbS90dnNob3dzL2dhbWUtb2YtdGhyb25lcy8xMDMwNDIyNzYyLyIsIn5jaGFubmVsIjoiV2ViIiwiK2RvbWFpbiI6InR2LWd1aWRlLmFwcC5saW5rIiwiK2NsaWNrX3RpbWVzdGFtcCI6MTYxNDk2ODY1NX0">
-       <meta property="al:ios:app_store_id" content="333647776">
-       <meta name="twitter:app:id:iphone" content="333647776">
-       <meta property="al:ios:app_name" content="TV Guide">
-       <meta name="twitter:app:name:iphone" content="TV Guide">
-       <meta property="al:android:url" content="tvguide://open?link_click_id=link-872657021940855116-eyIkb2dfdGl0bGUiOiJUViBHdWlkZTogWW91ciB1bHRpbWF0ZSB0diAmIG1vdmllIGFwcCIsIiRtYXJrZXRpbmdfdGl0bGUiOiJBTVAgVG9wIEJhbm5lciBEZWVwbGluayIsIn5jcmVhdGlvbl9zb3VyY2UiOjEsIiRvZ19kZXNjcmlwdGlvbiI6IkRlY2lkZSB3aGF0IHRvIHdhdGNoLCBhbmQgc3RhcnQgd2F0Y2hpbmcsIG5vIG1hdHRlciBob3cgeW91IHdhdGNoIFRWOiBjYWJsZSwgc2F0ZWxsaXRlLCBvciBzdHJlYW1pbmciLCIkb2dfaW1hZ2VfdXJsIjoiIiwifmZlYXR1cmUiOiJtYXJrZXRpbmciLCIkb2dfdXJsIjoiaHR0cHM6Ly93d3cudHZndWlkZS5jb20vIiwiK3VybCI6Imh0dHBzOi8vdHYtZ3VpZGUuYXBwLmxpbmsveTBCQThvcVdDY2I_JTI0Y2Fub25pY2FsX3VybD1odHRwcyUzQSUyRiUyRnd3dy50dmd1aWRlLmNvbSUyRnR2c2hvd3MlMkZnYW1lLW9mLXRocm9uZXMlMkYxMDMwNDIyNzYyJTJGIiwiJG9nX2FwcF9pZCI6IjYzMDg0NjQ1OTI5Iiwifm1hcmtldGluZyI6dHJ1ZSwifmlkIjoiODcyNjU3MDIxOTQwODU1MTE2IiwiJG9uZV90aW1lX3VzZSI6ZmFsc2UsIn5jYW1wYWlnbiI6IlByb2R1Y3QgUHJvbW9zIiwiJGNhbm9uaWNhbF91cmwiOiJodHRwczovL3d3dy50dmd1aWRlLmNvbS90dnNob3dzL2dhbWUtb2YtdGhyb25lcy8xMDMwNDIyNzYyLyIsIn5jaGFubmVsIjoiV2ViIiwiK2RvbWFpbiI6InR2LWd1aWRlLmFwcC5saW5rIiwiK2NsaWNrX3RpbWVzdGFtcCI6MTYxNDk2ODY1NX0">
-       <meta name="twitter:app:url:googleplay" content="tvguide://open?link_click_id=link-872657021940855116-eyIkb2dfdGl0bGUiOiJUViBHdWlkZTogWW91ciB1bHRpbWF0ZSB0diAmIG1vdmllIGFwcCIsIiRtYXJrZXRpbmdfdGl0bGUiOiJBTVAgVG9wIEJhbm5lciBEZWVwbGluayIsIn5jcmVhdGlvbl9zb3VyY2UiOjEsIiRvZ19kZXNjcmlwdGlvbiI6IkRlY2lkZSB3aGF0IHRvIHdhdGNoLCBhbmQgc3RhcnQgd2F0Y2hpbmcsIG5vIG1hdHRlciBob3cgeW91IHdhdGNoIFRWOiBjYWJsZSwgc2F0ZWxsaXRlLCBvciBzdHJlYW1pbmciLCIkb2dfaW1hZ2VfdXJsIjoiIiwifmZlYXR1cmUiOiJtYXJrZXRpbmciLCIkb2dfdXJsIjoiaHR0cHM6Ly93d3cudHZndWlkZS5jb20vIiwiK3VybCI6Imh0dHBzOi8vdHYtZ3VpZGUuYXBwLmxpbmsveTBCQThvcVdDY2I_JTI0Y2Fub25pY2FsX3VybD1odHRwcyUzQSUyRiUyRnd3dy50dmd1aWRlLmNvbSUyRnR2c2hvd3MlMkZnYW1lLW9mLXRocm9uZXMlMkYxMDMwNDIyNzYyJTJGIiwiJG9nX2FwcF9pZCI6IjYzMDg0NjQ1OTI5Iiwifm1hcmtldGluZyI6dHJ1ZSwifmlkIjoiODcyNjU3MDIxOTQwODU1MTE2IiwiJG9uZV90aW1lX3VzZSI6ZmFsc2UsIn5jYW1wYWlnbiI6IlByb2R1Y3QgUHJvbW9zIiwiJGNhbm9uaWNhbF91cmwiOiJodHRwczovL3d3dy50dmd1aWRlLmNvbS90dnNob3dzL2dhbWUtb2YtdGhyb25lcy8xMDMwNDIyNzYyLyIsIn5jaGFubmVsIjoiV2ViIiwiK2RvbWFpbiI6InR2LWd1aWRlLmFwcC5saW5rIiwiK2NsaWNrX3RpbWVzdGFtcCI6MTYxNDk2ODY1NX0">
-       <meta property="al:android:package" content="com.tvguidemobile">
-       <meta name="twitter:app:id:googleplay" content="com.tvguidemobile">
-       <meta property="al:android:app_name" content="TV Guide">
-       <meta name="twitter:app:name:googleplay" content="TV Guide">
-           <meta name="twitter:card" content="summary_large_image">
-       <meta property="og:image" content="https://cdn.branch.io/branch-assets/1580870306460-og_image.png">
-         <meta name="twitter:image:src" content="https://cdn.branch.io/branch-assets/1580870306460-og_image.png">
-       <title>TV Guide: Your ultimate tv &amp; movie app</title>
-       <meta property="og:title" content="TV Guide: Your ultimate tv &amp; movie app">
-         <meta name="twitter:title" content="TV Guide: Your ultimate tv &amp; movie app">
-       <meta property="og:description" content="Decide what to watch, and start watching, no matter how you watch TV: cable, satellite, or streaming">
-         <meta name="twitter:description" content="Decide what to watch, and start watching, no matter how you watch TV: cable, satellite, or streaming">
-       <meta property="fb:app_id" content="63084645929">
-       <meta property="og:url" content="https://www.tvguide.com/">
-       <meta name="twitter:app:country" content="US">
-   <script async src="https://cdn.ampproject.org/v0.js"></script><script async src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js" custom-element="amp-iframe"></script><script async src="https://cdn.ampproject.org/v0/amp-list-0.1.js" custom-element="amp-list"></script><script async src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js" custom-template="amp-mustache"></script><link rel="canonical" href="https://tv-guide.app.link/y0BA8oqWCcb?%24canonical_url=https%3A%2F%2Fwww.tvguide.com%2Ftvshows%2Fgame-of-thrones%2F1030422762%2F"></head>
-   <body>
-     <div class="card center">
-       <div class="main-image"></div>
-       <div id="content-container">
-         <div class="app-title text-bold">TV Guide</div>
-         <div class="card-title text-light">TV Guide: Your ultimate tv &amp; movie app</div>
-         <div class="app-content text-light">Decide what to watch, and start watching, no matter how you watch TV: cable, satellite, or streaming</div>
-       </div>
-       <div class="input-wrapper">
-         <div class="input-container">
-           <div class="input-label text-light">See this content immediately after install</div>
-           <div class="form-get-the-app">
-               <div class="app-icon">&#xA0;</div>
-             <amp-list src="https://tv-guide.app.link/y0BA8oqWCcb?%24canonical_url=https%3A%2F%2Fwww.tvguide.com%2Ftvshows%2Fgame-of-thrones%2F1030422762%2F&amp;__branch_amp_json=1" layout="flex-item">
-      <template type="amp-mustache" id="cta-template">
-        <a href="{{action}}" class="cta-button text-light">
-               Get The App
-             </a>
-      <amp-iframe id="branch-sdk" src="/amp-iframe-redirect?scheme_redirect={{scheme_redirect}}&redirect_strategy={{redirect_strategy}}&app_id=545025924735718072&has_app=false" sandbox="allow-scripts allow-top-navigation" height="11" layout="fixed-height" frameborder="0"></amp-iframe></template>
-    </amp-list>
-           </div>
-         </div>
-       </div>
-     </div>
-   </body>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="branch:deeplink:productId" content="1234" />
+    <meta name="branch:deeplink:product_view" content="true" />
+    <meta name="branch:deeplink:$deeplink_path" content="home/product=1" />
+    <meta name="branch:deeplink:categoryId" content="139500" data-react-helmet="true">
+
+    <title>INTENG-12231</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        h4 {
+          padding: 15px;
+          margin-top: 30px;
+        }
+
+        a {
+          padding: 10px 15px;
+          font-weight: bolder;
+          margin: auto;
+          color: #343a40;
+          font-size: 17px;
+        }
+
+        .image {
+            padding: 50px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+
+
+    </style>
+  </head>
+  <body class="text-center" data-gr-c-s-loaded="true">
+    <div class="container">
+        <h2 id="demo"></h2>
+        <div class="image">
+          <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png">
+        </div>
+        <div>
+          <a href="https://hana-branch.github.io/INTENG-12163.pdf">INTENG-12163 TEST PDF FILE</a>
+        </div>
+    </div>
+    <script>
+      window.onload = function() {window.top.location = validateProtocol("https://apps.apple.com/app/id333647776");};
+    </script>
+  </body>
+</html>
