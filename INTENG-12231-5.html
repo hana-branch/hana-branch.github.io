@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,300" rel="stylesheet" type="text/css" />
+  <style>
+        @font-face {
+            font-family: tvg-sans;
+            src: url('https://static-5.tvgcdn.net/www/fonts/alt/tvg-sans-serif-normal-600-webfont.woff2');
+        }
+        @font-face {
+            font-family: tvg-sans-light;
+            src: url('https://static-5.tvgcdn.net/www/fonts/tvg-sans-serif-normal-400-webfont.woff2');
+        }
+    body {
+      margin: 0;
+      word-wrap: break-word;
+            background-color: #f7f7fa;
+    }
+    /* ============ Portrait ============ */
+    .main-image {
+      width: 100%;
+      height: 250px;
+      height: 75vw;
+            text-align: center;
+            overflow: hidden;
+            position: absolute;
+            bottom: 50px;
+            
+    }
+        .main-image img{
+          margin-left: 10px;
+          width: 90%;
+        }
+    #content-container {
+      box-sizing:border-box;
+      padding: 20px;
+      margin:0 10px 0 10px;
+            text-align: center;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-self: flex-end;
+    }
+    .app-title {
+      font-size: 14px;
+      padding-bottom: 11px;
+      text-transform: uppercase;
+    }
+        .card-border{
+            height: 7px;
+          background: linear-gradient(to right, #FD234E, #fece57);
+        }
+    .card-title {
+      font-size: 36px;
+      line-height: 36px;
+    }
+    .app-content {
+      padding-top: 20px;
+            padding-bottom:10px;
+      font-size: 22px;
+    }
+    .input-wrapper {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width:100%;
+      height:110px;
+      background-color: white;
+      -webkit-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+      -moz-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+      box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+    }
+    .input-container {
+      width:100%;
+      padding:0 24px;
+      text-align:center;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+    .form-get-the-app {
+      text-align:center;
+      padding-top: 10px;
+    }
+    .form-get-the-app > input {
+      margin-right: 10px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #FFFFFF;
+      border: 1px solid #979797;
+      border-radius: 2px;
+      font-size: 60px;
+      color: #CECECE;
+      line-height: 24px;
+      padding-left: 20px;
+    }
+    .input-label {
+      padding-bottom: 4px;
+      font-size: 13px;
+      padding-left: 10px;
+      padding-right: 10px;
+      overflow: hidden;
+      word-wrap: break-word;
+      padding-top: 4px;
+      text-align: center;
+    }
+    .app-icon {
+      content:" ";
+      float:left;
+      display:inline-block;
+      width:62px;
+      height: 62px;
+      line-height: 62px;
+      background-size:100% auto;
+      background-image: url(https://cdn.branch.io/branch-assets/1580870306460-og_image.png);
+    }
+    .cta-button {
+      display:block;
+      height: 62px;
+      line-height:62px;
+            background: linear-gradient(to right, #FD234E, #FF7A5D);
+      border-radius: 2px;
+      font-size: 20px;
+      padding:0 20px;
+      margin-left:70px;
+      color: #FFFFFF;
+      text-align: center;
+      text-decoration: none;
+            border-radius: 6px;
+    }
+    /* No data (portrait) */
+    @media only screen and (orientation: portrait) {
+      .card--no-data .main-image {
+        background-image: url("http://s3-us-west-1.amazonaws.com/branch-assets/b_stripes-small.png");
+        background-size: auto;
+        background-position: top center;
+        background-repeat: repeat;
+        height: 190px;
+      }
+      .card--no-data > .app-icon {
+        position: absolute;
+        top: 160px;
+        left: 34px;
+      }
+      .card--no-data #content-container {
+        margin-top:20px;
+      }
+    }
+    @media screen /* >= iPhone 5 */
+    and (min-device-width: 321px) {
+      .input-label {
+        font-size: 14px;
+      }
+    }
+    @media only screen /* >= iPhone 6 */
+    and (min-device-width: 375px)
+    and (orientation: portrait) {
+      .main-image {
+        height:300px;
+        height: 80vw;
+      }
+      .app-content {
+        /* padding-bottom:120px; */
+      }
+      .input-wrapper {
+        height:115px;
+      }
+    }
+    @media only screen /* >= iPhone 6+ */
+    and (min-device-width: 414px)
+    and (orientation: portrait) {
+      .main-image {
+        height:390px;
+        height: 95vw;
+      }
+    }
+    /* ============ Landscape ============ */
+    @media only screen and (orientation: landscape){
+      .main-image {
+        position:fixed;
+        height:100%;
+        height:100vh;
+        width: 50%;
+      }
+      .input-wrapper {
+        right:0;
+        left:auto;
+        width:50%;
+      }
+      #content-container {
+        float:left;
+        width:50%;
+        margin-left:50%;
+      }
+      .input-wrapper {
+        height:108px;
+      }
+      .app-content {
+        /* padding-bottom:110px; */
+      }
+      .form-get-the-app {
+        padding-top:8px;
+      }
+      .input-container {
+        left: 50%;
+      }
+      .cta-button {
+        height: 44px;
+        line-height: 44px;
+        padding:0 5px;
+        margin-left:50px;
+      }
+      .app-icon {
+        width: 44px;
+        height: 44px;
+      }
+      /* No data (landscape) */
+      .card--no-data .main-image {
+        height: 100%;
+      }
+      .card--no-data > .app-icon {
+        display:none;
+      }
+      .card--no-data #content-container {
+        margin-top:0;
+      }
+    }
+    @media only screen /* >= iPhone 6 */
+    and (min-device-width: 645px)
+    and (orientation: landscape) {
+      .form-get-the-app {
+        padding-top:8px;
+      }
+      .cta-button {
+        height: 62px;
+        line-height: 62px;
+        padding:0 20px;
+        margin-left:70px;
+      }
+      .app-icon {
+        width: 62px;
+        height: 62px;
+        top:-2px;
+      }
+    }
+    /* Reusables */
+    .text-bold {
+      font-family: "tvg-sans", "Open Sans", Helvetica, serif;
+      font-weight: 700
+    }
+    .text-light {
+      font-family: "tvg-sans-light", Helvetica, serif;
+      font-weight: 400;
+    }
+    .cta-button--no-app-icon {
+      margin-left:0;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="card center">
+        <div class="card-border"></div>
+    <div id="content-container">
+      
+      <div class="card-title text-bold">Never Miss Your Show</div>
+      <div class="app-content text-light">Download the TV Guide App for your mobile device</div>
+    </div>
+        <div class="main-image"><img src="http://web.stage.tvguide.com/assets/img/static/branchio/devices.png" /></div>
+    <div class="input-wrapper">
+      <div class="input-container">
+        <div class="input-label text-light"></div>
+        <form class="form-get-the-app">
+          <div class="app-icon">&nbsp;</div>
+          <a href="https://tv-guide-alternate.app.link/y0BA8oqWCcb?__branch_flow_type=viewapp&__branch_flow_id=896502243270753903&%24canonical_url=https%3A%2F%2Fwww.tvguide.com%2Ftvshows%2Fgame-of-thrones%2F1030422762%2F&_t=896502243237199470" class="cta-button text-light">Download The App</a>
+        </form>
+      </div>
+    </div>
+  </div>
+<script type="text/javascript">
+function validateProtocol(url){
+   var parser = document.createElement("a");
+   parser.href = url; 
+   var protocol = parser.protocol.toLowerCase();
+   if ([ "javascript:", "vbscript:", "data:", "ftp:", ":", " "].indexOf(protocol) < 0) {
+      return url;}
+   return null;
+}
+
+    function isSafariBrowser(ua) {
+      return !!/^((?!chrome|android|crios|fxios).)*safari/i.test(ua);
+    }
+
+    function isGreaterThanVersion(ua, v) {
+      var match = /iPhone OS ([^ ]*)/i.exec(ua);
+      if (match && match[1]) {
+        try {
+          var version = match[1].replace(/_/gi, '.');
+          version = version.split('.');
+          version = parseFloat(version[0] + '.' + version[1]);
+          if (version >= v) {
+            return true;
+          }
+        } catch (e) {
+          return false;
+        }
+      }
+      return false;
+    }
+
+    function isSafari12Dot3OrGreater() {
+      var ua = navigator.userAgent;
+      var isSafari = isSafariBrowser(ua);
+
+      if (isSafari) {
+        return isGreaterThanVersion(ua, 12.3);
+      }
+
+      return false;
+    };
+
+    window.addEventListener('load', function() {
+      setTimeout(function timeout() {
+        if (document.webkitHidden || document.hidden) { return; };
+        if (isSafari12Dot3OrGreater()) {
+          if (window.confirm("Open in App Store?")) {
+            window.top.location = validateProtocol("https://tv-guide-alternate.app.link/y0BA8oqWCcb?__branch_flow_type=viewapp&__branch_flow_id=896502243270753903&%24canonical_url=https%3A%2F%2Fwww.tvguide.com%2Ftvshows%2Fgame-of-thrones%2F1030422762%2F&_t=896502243237199470");
+          }
+        } else {
+          window.top.location = validateProtocol("https://tv-guide-alternate.app.link/y0BA8oqWCcb?__branch_flow_type=viewapp&__branch_flow_id=896502243270753903&%24canonical_url=https%3A%2F%2Fwww.tvguide.com%2Ftvshows%2Fgame-of-thrones%2F1030422762%2F&_t=896502243237199470");
+        }
+      }, 250);
+    });
+    </script>
+  </body>
+</html>
