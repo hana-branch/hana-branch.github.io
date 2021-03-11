@@ -288,5 +288,10 @@ function validateProtocol(url){
       return url;}
    return null;
 }
-window.top.location = validateProtocol("https://apps.apple.com/app/id333647776");</script></body>
+
+window.onload = function() {
+  window.top.location = validateProtocol("https://apps.apple.com/app/id333647776");
+};
+  </script>
+</body>
 </html>

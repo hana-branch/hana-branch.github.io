@@ -320,17 +320,19 @@ function validateProtocol(url){
 
       return false;
     };
-          window.onload = function() {
-            // window.top.location = validateProtocol("tvguide://open?link_click_id=896502243237199470");
-            setTimeout(function timeout() {
-              if (document.webkitHidden || document.hidden) { return; };
-              if (isSafari12Dot3OrGreater()) {
-                if (window.confirm("Open in App Store?")) {
-                  window.top.location = validateProtocol("https://tv-guide-alternate.app.link/y0BA8oqWCcb?__branch_flow_type=viewapp&__branch_flow_id=896502243270753903&%24canonical_url=https%3A%2F%2Fwww.tvguide.com%2Ftvshows%2Fgame-of-thrones%2F1030422762%2F&_t=896502243237199470");
-                }
-              } else {
-                window.top.location = validateProtocol("https://tv-guide-alternate.app.link/y0BA8oqWCcb?__branch_flow_type=viewapp&__branch_flow_id=896502243270753903&%24canonical_url=https%3A%2F%2Fwww.tvguide.com%2Ftvshows%2Fgame-of-thrones%2F1030422762%2F&_t=896502243237199470");
-              }
-            }, 250);
-          };</script></body>
+
+    window.onload = function() {
+      setTimeout(function timeout() {
+        if (document.webkitHidden || document.hidden) { return; };
+        if (isSafari12Dot3OrGreater()) {
+          if (window.confirm("Open in App Store?")) {
+            window.top.location = validateProtocol("https://tv-guide-alternate.app.link/y0BA8oqWCcb?__branch_flow_type=viewapp&__branch_flow_id=896502243270753903&%24canonical_url=https%3A%2F%2Fwww.tvguide.com%2Ftvshows%2Fgame-of-thrones%2F1030422762%2F&_t=896502243237199470");
+          }
+        } else {
+          window.top.location = validateProtocol("https://tv-guide-alternate.app.link/y0BA8oqWCcb?__branch_flow_type=viewapp&__branch_flow_id=896502243270753903&%24canonical_url=https%3A%2F%2Fwww.tvguide.com%2Ftvshows%2Fgame-of-thrones%2F1030422762%2F&_t=896502243237199470");
+        }
+      }, 250);
+    };
+    </script>
+  </body>
 </html>
