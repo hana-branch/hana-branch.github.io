@@ -25,6 +25,14 @@
         console.log(err, data);
       });
 
+      var queryString = window.location.search;
+      var urlParams = new URLSearchParams(queryString);
+      var campaign = urlParams.get('utm_campaign');
+      var tags = urlParams.get('utm_source');
+      var GCLID = urlParams.get('gclid');
+
+      branch.setBranchViewData({data:{'~customer_campaign': campaign,'~tags' : [tags],'gclid' : GCLID}});
+
     </script>
     <style>
         body {
