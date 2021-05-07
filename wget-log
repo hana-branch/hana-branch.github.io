@@ -1,0 +1,6 @@
+--2021-05-07 10:04:52--  https://stage.impression.link/impression?branch_key=key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL
+Resolving stage.impression.link (stage.impression.link)... 13.227.66.105, 13.227.66.38, 13.227.66.58, ...
+Connecting to stage.impression.link (stage.impression.link)|13.227.66.105|:443... connected.
+HTTP request sent, awaiting response... 400 Bad Request
+2021-05-07 10:04:52 ERROR 400: Bad Request.
+
