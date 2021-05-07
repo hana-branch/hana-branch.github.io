@@ -15,25 +15,6 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
 
-    <!-- DEEPVIEW} -->
-    <script type="text/javascript">
-      // load Branch
-      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
-
-      // init Branch
-      branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {}, function(err, data) {
-        console.log(err, data);
-      });
-
-      var queryString = window.location.search;
-      var urlParams = new URLSearchParams(queryString);
-      var campaign = urlParams.get('utm_campaign');
-      var tags = urlParams.get('utm_source');
-      var GCLID = urlParams.get('gclid');
-
-      branch.setBranchViewData({data:{'~customer_campaign': campaign,'~tags' : [tags],'gclid' : GCLID}});
-
-    </script>
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -67,11 +48,7 @@
   <body class="text-center" data-gr-c-s-loaded="true">
     <div class="container">
         <h2 id="demo"></h2>
-        <div class="image">
-          <img src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png">
-        </div>
-        <div class="event">
-          <button onclick="tiggerEvent()">Create Event</button>
+        <div class="image"><a href="https://stage.impression.link/impression?branch_key=key_live_hkDytPACtipny3N9XmnbZlapBDdj4WIL&%243p=a_custom_919250895961912615&~branch_ad_format=App%20Only&~feature=paid%20advertising"><img src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png"></a>
         </div>
         <div class="test">
 	      </div>
