@@ -16,45 +16,27 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
     <script type="text/javascript">
-      //(function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
+      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
 
 
+      var tiggerEvent = function() {
+        var custom_data = {
+          "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
+          "Custom_Event_Property_Key2": "Custom_Event_Property_val2"
+        };
 
-    (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData".split(" "), 0);
-
-
-     var options = { tracking_disabled: false , no_journeys: true }; 
-     branch.init('key_live_nbqOECWY4A90nyRrnMWomllasrpReGuD', options, function(err, data) {});
-
-     window.location = "https://map.what3words.com/clip.apples.leap"
-
-    //  branch.lastAttributedTouchData(
-    //     1,
-    //     function(err, data) {console.log(err, data)}
-    // );
-
-      // var tiggerEvent = function() {
-      //   var custom_data = {
-      //     "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
-      //     "Custom_Event_Property_Key2": "Custom_Event_Property_val2"
-      //   };
-
-      //   branch.logEvent(
-      //     'custom_event_name',
-      //     custom_data,
-      //     function(err) { console.log(err); }
-      //   );
-      // }
+        branch.logEvent(
+          'custom_event_name',
+          custom_data,
+          function(err) { console.log(err); }
+        );
+      }
 
 
-      // // init Branch
-      // branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {"tracking_disabled":false,"no_journeys":true}, function(err, data) {
-      //   console.log(err, data);
-      // });
-
-      // branch.first(function(err, data) {
-      //   console.log("First Log : ", err, data);
-      // });
+      // init Branch
+      branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {"tracking_disabled":false,"no_journeys":true}, function(err, data) {
+        console.log(err, data);
+      });
     </script>
     <style>
         body {
