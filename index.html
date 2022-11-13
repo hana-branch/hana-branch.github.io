@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Branch Metrics Web SDK Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="branch:deeplink:pageType" content="ListPage" />
+    <meta name="branch:deeplink:productView" content="true" />
+    <meta data-rh="true" id="meta-og-image" name="image" content="https://boxed-web2-assets-prod-gcp.boxed.com/public/images/boxed-logo-256x256.png">
+    <!-- Smart Banner -->
+    <meta name="apple-itunes-app" content="app-id=917737838"> 
+    <!-- Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://hana-branch.github.io/apple-touch-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="https://hana-branch.github.io/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://hana-branch.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://hana-branch.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://hana-branch.github.io/site.webmanifest">
+
+    <!-- Styles --> 
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
+
+    <script type="text/javascript">
+      // load Branch
+      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
+
+      var listener = function(event, data) { console.log(event, data); }
+      branch.addListener(listener);
+      //init Branch
+      branch.init(
+        'key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2',
+        {},
+        function(err, data) {
+          document.querySelector("pre#init-response").innerHTML = JSON.stringify(data);
+          console.log(err, data);
+        });
+
+      branch.deepview(
+          {
+            'channel': 'mobile_web',
+            'feature': 'deepview',
+            data : {
+              '$deeplink_path': 'page/1234',
+              'user_cookie_id': '7890',
+              'page_id': '1234',
+            }
+          },
+          {
+            'open_app': true
+          }
+      );
+
+      var linkData = {
+        campaign: 'content 123',
+        channel: 'facebook',
+        feature: 'dashboard',
+        stage: 'new user',
+        tags: [ 'tag1', 'tag2', 'tag3' ],
+        alias: '',
+        data: {
+          'custom_bool': true,
+          'custom_int': Date.now(),
+          'custom_string': 'hello',
+          '$og_title': 'Title',
+          '$og_description': 'Description',
+          '$og_image_url':'http://lorempixel.com/400/400'
+        }
+      };
+
+      branch.setBranchViewData(linkData);
+
+      var tiggerCustomEvent = function() {
+        var custom_data = {
+          "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
+          "Custom_Event_Property_Key2": "Custom_Event_Property_val2",
+          "array": ["1", "2", "3", "4"],
+          "number": "[\"479294391\",\"2078332144\",\"1135773900\",\"1667121068\",\"387781082\",\"697979600\",\"973877442\",\"1963324657\"]"
+        };
+
+        branch.logEvent(
+          'custom_event_name',
+          custom_data,
+          function(err) { console.log(err); }
+        );
+      }
+
+      var tiggerPurchaseEvent = function() {
+        var event_and_custom_data = {
+           "transaction_id": "tras_Id_1232343434",
+           "currency": "USD",
+           "revenue": 180.2,
+           "shipping": 10.5,
+           "tax": 13.5,
+           "coupon": "promo-1234",
+           "affiliation": "high_fi",
+           "description": "Preferred purchase",
+           "purchase_loc": "Palo Alto",
+           "store_pickup": "unavailable"
+        };
+
+
+        branch.logEvent(
+          'PURCHASE',
+          event_and_custom_data,
+          function(err) { console.log(err); }
+        );
+      }
+
+      var data = function() {
+        branch.data(function (err, data) {
+            console.log(data);
+            document.querySelector("pre#response").innerHTML = JSON.stringify(data);
+        })
+      }
+
+      var latd = function() {
+        branch.lastAttributedTouchData(
+          function (err, data) {
+            console.log(data);
+            document.querySelector("pre#response").innerHTML = JSON.stringify(data);
+          }
+        );
+      }
+
+      var createLink = function() {
+        var linkData = {
+          campaign: 'content 123',
+          channel: 'facebook',
+          feature: 'dashboard',
+          stage: 'new user',
+          tags: [ 'tag1', 'tag2', 'tag3' ],
+          data: {
+            'custom_bool': true,
+            'custom_int': Date.now(),
+            'custom_string': 'hello',
+            'custom_obj': {"hello": "hi", "number": null},
+            '$og_title': 'Title',
+            '$og_description': 'Description',
+            '$og_image_url':'http://lorempixel.com/400/400',
+            '$fallback_url': 'https://hana-branch.github.io/'
+          }
+        };
+
+        branch.link(linkData, function(err, link) {
+          console.log(link);
+          document.querySelector("pre#response").innerHTML = '<a href="' + link + '">' + link + '</a>'
+        });
+      }
+    // Segment 
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="F0EqctxfRnGze9dIDc7DilKjeOPSaXVV";;analytics.SNIPPET_VERSION="4.15.3";
+    analytics.load("F0EqctxfRnGze9dIDc7DilKjeOPSaXVV");
+    analytics.page();
+    }}();
+    </script>
+    <style type="text/css">
+      body {
+        background-color: #fcfcfc;
+        text-align: center;
+        margin: auto;
+      }
+      .ui.button {
+        display: inline-block;
+        margin: 7px;
+      }
+      .ui.menu .item img.logo {
+        margin-right: 1.5em;
+      }
+      .main.container {
+        margin-top: 7em;
+      }
+      .ui.image {
+        margin: auto;
+      }
+      pre {
+        word-break: break-word;
+        overflow-wrap: break-word;
+        white-space: pre-line;
+      }
+    </style>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="">
+    <div class="ui main text container">
+      <div class="ui fixed inverted menu">
+        <div class="branch-journeys-top"></div>
+        <div class="ui container">
+          <a href="#" class="header item">
+            <img class="logo" src="./favicon-32x32.png">
+            Hana Web Test
+          </a>
+          <a href="#" class="item">Home</a>
+        </div>
+      </div>
+    </div>
+    <div class="ui main text container">
+        <h1 class="ui header">Hana Web Test</h1>
+        <div class="image">
+          <img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png">
+        </div>
+
+        <section class="ui segment init-response">
+          <h4>Init Response</h4>
+          <div class="ui placeholder segment">
+            <pre id="init-response"></pre>
+          <div>
+        </section>
+        <section class="ui segment response">
+          <h4>Response</h4>
+          <pre id="response">Click a button!</pre>
+        </section>
+        <div class="ui divider"></div>
+        <section class="methods">
+          <button class="ui basic button" onclick="tiggerCustomEvent()">Create Custom Event</button>
+          <button class="ui basic button" onclick="tiggerPurchaseEvent()">Create Purchase Event</button>
+          <button class="ui basic button" onclick="createLink()">Create Link</button>
+          <button class="ui basic button" onclick="data()">data</button>
+          <button class="ui basic button" onclick="latd()">LATD</button>
+        </section>
+        <div class="ui divider"></div>
+    </div>
+  </body>
+</html>
