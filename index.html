@@ -4,6 +4,7 @@
     <title>Branch Metrics Web SDK Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="branch:deeplink:user.type" content="test" />
     <meta name="branch:deeplink:pageType" content="ListPage" />
     <meta name="branch:deeplink:productView" content="true" />
     <meta data-rh="true" id="meta-og-image" name="image" content="https://boxed-web2-assets-prod-gcp.boxed.com/public/images/boxed-logo-256x256.png">
@@ -29,28 +30,33 @@
       var listener = function(event, data) { console.log(event, data); }
       branch.addListener(listener);
       //init Branch
+      // branch.disableTracking(true)
       branch.init(
-        'key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2',
-        {},
+        'key_live_dja84gqoL2gdMDDebXh9SdbovwdiS0kf',
+        {
+          'no_journeys': true
+        },
         function(err, data) {
           document.querySelector("pre#init-response").innerHTML = JSON.stringify(data);
           console.log(err, data);
         });
+      // branch.disableTracking(true)
+      // branch.track('pageview')
 
-      branch.deepview(
-          {
-            'channel': 'mobile_web',
-            'feature': 'deepview',
-            data : {
-              '$deeplink_path': 'page/1234',
-              'user_cookie_id': '7890',
-              'page_id': '1234',
-            }
-          },
-          {
-            'open_app': true
-          }
-      );
+      // branch.deepview(
+      //     {
+      //       'channel': 'mobile_web',
+      //       'feature': 'deepview',
+      //       data : {
+      //         '$deeplink_path': 'page/1234',
+      //         'user_cookie_id': '7890',
+      //         'page_id': '1234',
+      //       }
+      //     },
+      //     {
+      //       'open_app': true
+      //     }
+      // );
 
       var linkData = {
         campaign: 'content 123',
