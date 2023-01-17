@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html lang="en">
 <html>
   <head>
     <title>Branch Metrics Web SDK Example</title>
@@ -18,7 +18,7 @@
     <link rel="manifest" href="https://hana-branch.github.io/site.webmanifest">
 
     <!-- Styles --> 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
@@ -28,18 +28,25 @@
       (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
 
       var listener = function(event, data) { console.log(event, data); }
-      branch.addListener(listener);
-      //init Branch
+      // branch.addListener(listener);
+      // init Branch
       // branch.disableTracking(true)
-      branch.init(
-        'key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2',
-        {
-          'no_journeys': true
-        },
-        function(err, data) {
+      const loadBranchAndGetFingerprint = new Promise(function(resolve, reject) {
+        branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {}, function(err, data) {
+          if (!!err) return reject(err);
           document.querySelector("pre#init-response").innerHTML = JSON.stringify(data);
           console.log(err, data);
+
+          branch.getBrowserFingerprintId(function(err, fingerprint) {  // fetch the browser fingerprint from the SDK
+            if (!!err) {
+              reject(err);
+              return;
+            }
+            resolve({...data, fingerprint});
+          });
         });
+      });
+
       // branch.disableTracking(true)
       // branch.track('pageview')
 
@@ -57,6 +64,11 @@
       //       'open_app': true
       //     }
       // );
+
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector("#branch-banner").setAttribute('tabindex', 1);
+        document.querySelector("#branch-banner").focus();
+     }, false);
 
       var linkData = {
         campaign: 'content 123',
@@ -122,6 +134,7 @@
       }
 
       var latd = function() {
+        document.querySelector("#latd").focus();
         branch.lastAttributedTouchData(
           function (err, data) {
             console.log(data);
@@ -156,8 +169,19 @@
       }
     // Segment 
     !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="F0EqctxfRnGze9dIDc7DilKjeOPSaXVV";;analytics.SNIPPET_VERSION="4.15.3";
-    analytics.load("F0EqctxfRnGze9dIDc7DilKjeOPSaXVV");
-    analytics.page();
+      analytics.load("F0EqctxfRnGze9dIDc7DilKjeOPSaXVV");
+      analytics.page();
+      loadBranchAndGetFingerprint.then(function(data) {
+        const { fingerprint } = data;
+        console.log("fingerprint :", fingerprint);
+        // Load the Segment SDK and initialize with key here
+
+        // Segment track request
+        analytics.track('Branch Segment Article Completed Track Test', {
+            browser_fingerprint_id: fingerprint // add the browser fingerprint to the Segment track event
+            //... Other event details ...
+        });
+      });
     }}();
     </script>
     <style type="text/css">
@@ -221,7 +245,7 @@
           <button class="ui basic button" onclick="tiggerPurchaseEvent()">Create Purchase Event</button>
           <button class="ui basic button" onclick="createLink()">Create Link</button>
           <button class="ui basic button" onclick="data()">data</button>
-          <button class="ui basic button" onclick="latd()">LATD</button>
+          <button class="ui basic button" id="latd" onclick="latd()" tabindex="0">LATD</button>
         </section>
         <div class="ui divider"></div>
     </div>
