@@ -33,90 +33,48 @@
 
 <!--     <script type="text/javascript">
       // load Branch
-      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
+      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking qrCode".split(" "), 0);
 
-      var listener = function(event, data) { console.log(event, data); }
+      // add Branch Listner
+      // var listener = function(event, data) { console.info("BranchSDK Listner:", event, data); }
       // branch.addListener(listener);
-      // init Branch
+
+      // disable Branch tracking
       // branch.disableTracking(true)
-      // const loadBranchAndGetFingerprint = new Promise(function(resolve, reject) {
-      //   branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {}, function(err, data) {
-      //     if (!!err) return reject(err);
-      //     document.querySelector("pre#init-response").innerHTML = JSON.stringify(data);
-      //     console.log(err, data);
 
-      //     if (navigator.userAgent.toLowerCase().indexOf('safari/') > -1) {
-      //         branch.closeJourney(function(err) {
-      //           console.log("closeJourney: ", err);
-      //         });
-      //     }
+      const loadBranchAndGetFingerprint = new Promise(function(resolve, reject) {
+        // init Branch
+        branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {}, function(err, data) {
+          if (!!err) {
+            console.error('BranchSDK Error: ', err);
+            return reject(err)
+          };
 
-      //     branch.getBrowserFingerprintId(function(err, fingerprint) {  // fetch the browser fingerprint from the SDK
-      //       if (!!err) {
-      //         reject(err);
-      //         return;
-      //       }
-      //       resolve({...data, fingerprint});
-      //     });
-      //   });
-      // });
+          console.info('BranchSDK initialize Success')
+          console.log('BranchSDK Data: ', data);
 
-      branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {}, function(err, data) {
           document.querySelector("pre#init-response").innerHTML = JSON.stringify(data);
-          console.log(err, data);
 
-          setTimeout(() => {
-            if (navigator.userAgent.toLowerCase().indexOf('safari/') > -1) {
+          // close Branch Journey Banner
+          setTimeout(function() {
+           if (navigator.userAgent.toLowerCase().indexOf('safari/') > -1) {
               branch.closeJourney(function(err) {
-                if(err) console.log('BranchSDK closeJourney Error:', err);
+                console.info('BranchSDK closeJourney is called');
+                if(err) console.error('BranchSDK closeJourney Error:', err);
               });
             }
-          }, 300)
+          }, 500);
 
+          branch.getBrowserFingerprintId(function(err, fingerprint) {  // fetch the browser fingerprint from the SDK
+            if (!!err) {
+              console.error('BranchSDK getBrowserFingerprintId Error: ', err);
+              reject(err);
+              return;
+            }
+            resolve({...data, fingerprint});
+          });
+        });
       });
-
-
-      // branch.disableTracking(true)
-      // branch.track('pageview')
-
-      // branch.deepview(
-      //     {
-      //       'channel': 'mobile_web',
-      //       'feature': 'deepview',
-      //       data : {
-      //         '$deeplink_path': 'page/1234',
-      //         'user_cookie_id': '7890',
-      //         'page_id': '1234',
-      //       }
-      //     },
-      //     {
-      //       'open_app': true
-      //     }
-      // );
-
-      document.addEventListener('DOMContentLoaded', function() {
-        document.querySelector("#branch-banner").setAttribute('tabindex', 1);
-        document.querySelector("#branch-banner").focus();
-     }, false);
-
-      var linkData = {
-        campaign: 'content 123',
-        channel: 'facebook',
-        feature: 'dashboard',
-        stage: 'new user',
-        tags: [ 'tag1', 'tag2', 'tag3' ],
-        alias: '',
-        data: {
-          'custom_bool': true,
-          'custom_int': Date.now(),
-          'custom_string': 'hello',
-          '$og_title': 'Title',
-          '$og_description': 'Description',
-          '$og_image_url':'http://lorempixel.com/400/400'
-        }
-      };
-
-      branch.setBranchViewData(linkData);
 
       var tiggerCustomEvent = function() {
         var custom_data = {
@@ -129,7 +87,7 @@
         branch.logEvent(
           'custom_event_name',
           custom_data,
-          function(err) { console.log(err); }
+          function(err) { if(err) console.error('BranchSDK CustomEvent Error:', err); }
         );
       }
 
@@ -147,26 +105,29 @@
            "store_pickup": "unavailable"
         };
 
-
         branch.logEvent(
           'PURCHASE',
           event_and_custom_data,
-          function(err) { console.log(err); }
+          function(err) { if(err) console.error('BranchSDK PurchaseEvent Error:', err); }
         );
       }
 
       var data = function() {
         branch.data(function (err, data) {
-            console.log(data);
-            document.querySelector("pre#response").innerHTML = JSON.stringify(data);
-        })
+          if(err) console.error('BranchSDK data Error:', err);
+
+          console.log('BranchSDK Data: ', data);
+          document.querySelector("pre#response").innerHTML = JSON.stringify(data);
+        });
       }
 
       var latd = function() {
         document.querySelector("#latd").focus();
         branch.lastAttributedTouchData(
           function (err, data) {
-            console.log(data);
+            if(err) console.error('BranchSDK lastAttributedTouchData Error:', err);
+
+            console.log('BranchSDK lastAttributedTouchData Data: ', data);
             document.querySelector("pre#response").innerHTML = JSON.stringify(data);
           }
         );
@@ -192,26 +153,28 @@
         };
 
         branch.link(linkData, function(err, link) {
-          console.log(link);
+          if(err) console.error('BranchSDK createLink Error:', err);
+          console.log('BranchSDK Created Link: ', link);
           document.querySelector("pre#response").innerHTML = '<a href="' + link + '">' + link + '</a>'
         });
       }
-    // Segment 
-    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="F0EqctxfRnGze9dIDc7DilKjeOPSaXVV";;analytics.SNIPPET_VERSION="4.15.3";
-      analytics.load("F0EqctxfRnGze9dIDc7DilKjeOPSaXVV");
-      analytics.page();
-      loadBranchAndGetFingerprint.then(function(data) {
-        const { fingerprint } = data;
-        console.log("fingerprint :", fingerprint);
-        // Load the Segment SDK and initialize with key here
 
-        // Segment track request
-        analytics.track('Branch Segment Article Completed Track Test', {
-            browser_fingerprint_id: fingerprint // add the browser fingerprint to the Segment track event
-            //... Other event details ...
+      // Segment 
+      !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on","addSourceMiddleware","addIntegrationMiddleware","setAnonymousId","addDestinationMiddleware"];analytics.factory=function(e){return function(){var t=Array.prototype.slice.call(arguments);t.unshift(e);analytics.push(t);return analytics}};for(var e=0;e<analytics.methods.length;e++){var key=analytics.methods[e];analytics[key]=analytics.factory(key)}analytics.load=function(key,e){var t=document.createElement("script");t.type="text/javascript";t.async=!0;t.src="https://cdn.segment.com/analytics.js/v1/" + key + "/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(t,n);analytics._loadOptions=e};analytics._writeKey="F0EqctxfRnGze9dIDc7DilKjeOPSaXVV";;analytics.SNIPPET_VERSION="4.15.3";
+        analytics.load("F0EqctxfRnGze9dIDc7DilKjeOPSaXVV");
+        analytics.page();
+        loadBranchAndGetFingerprint.then(function(data) {
+          const { fingerprint } = data;
+          console.log("fingerprint :", fingerprint);
+          // Load the Segment SDK and initialize with key here
+
+          // Segment track request
+          analytics.track('Branch Segment Article Completed Track Test', {
+              browser_fingerprint_id: fingerprint // add the browser fingerprint to the Segment track event
+              //... Other event details ...
+          });
         });
-      });
-    }}();
+      }}();
     </script> -->
     <style type="text/css">
       body {
@@ -257,12 +220,12 @@
       </div>
     </div>
     <div class="ui main text container">
-        <h1 class="ui header">Hana Web Test</h1>
+        <h1 class="ui header">Hana Web Test</h1>  
         <div class="image">
           <img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png">
         </div>
 
-<!--         <section class="ui segment init-response">
+        <section class="ui segment init-response">
           <h4>Init Response</h4>
           <div class="ui placeholder segment">
             <pre id="init-response"></pre>
@@ -280,7 +243,7 @@
           <button class="ui basic button" onclick="data()">data</button>
           <button class="ui basic button" id="latd" onclick="latd()" tabindex="0">LATD</button>
         </section>
-        <div class="ui divider"></div> -->
+        <div class="ui divider"></div>
     </div>
   </body>
 </html>
