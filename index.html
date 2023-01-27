@@ -23,7 +23,15 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
 
-    <script type="text/javascript">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5BC9FN9');</script>
+    <!-- End Google Tag Manager -->
+
+<!--     <script type="text/javascript">
       // load Branch
       (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking".split(" "), 0);
 
@@ -31,21 +39,42 @@
       // branch.addListener(listener);
       // init Branch
       // branch.disableTracking(true)
-      const loadBranchAndGetFingerprint = new Promise(function(resolve, reject) {
-        branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {}, function(err, data) {
-          if (!!err) return reject(err);
+      // const loadBranchAndGetFingerprint = new Promise(function(resolve, reject) {
+      //   branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {}, function(err, data) {
+      //     if (!!err) return reject(err);
+      //     document.querySelector("pre#init-response").innerHTML = JSON.stringify(data);
+      //     console.log(err, data);
+
+      //     if (navigator.userAgent.toLowerCase().indexOf('safari/') > -1) {
+      //         branch.closeJourney(function(err) {
+      //           console.log("closeJourney: ", err);
+      //         });
+      //     }
+
+      //     branch.getBrowserFingerprintId(function(err, fingerprint) {  // fetch the browser fingerprint from the SDK
+      //       if (!!err) {
+      //         reject(err);
+      //         return;
+      //       }
+      //       resolve({...data, fingerprint});
+      //     });
+      //   });
+      // });
+
+      branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {}, function(err, data) {
           document.querySelector("pre#init-response").innerHTML = JSON.stringify(data);
           console.log(err, data);
 
-          branch.getBrowserFingerprintId(function(err, fingerprint) {  // fetch the browser fingerprint from the SDK
-            if (!!err) {
-              reject(err);
-              return;
+          setTimeout(() => {
+            if (navigator.userAgent.toLowerCase().indexOf('safari/') > -1) {
+              branch.closeJourney(function(err) {
+                if(err) console.log('BranchSDK closeJourney Error:', err);
+              });
             }
-            resolve({...data, fingerprint});
-          });
-        });
+          }, 300)
+
       });
+
 
       // branch.disableTracking(true)
       // branch.track('pageview')
@@ -183,7 +212,7 @@
         });
       });
     }}();
-    </script>
+    </script> -->
     <style type="text/css">
       body {
         background-color: #fcfcfc;
@@ -211,6 +240,10 @@
     </style>
   </head>
   <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BC9FN9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <div class="ui main text container">
       <div class="ui fixed inverted menu">
         <div class="branch-journeys-top"></div>
@@ -225,11 +258,12 @@
     </div>
     <div class="ui main text container">
         <h1 class="ui header">Hana Web Test</h1>
+        <a href="https://www.petco.com/shop/en/petcostore">https://www.petco.com/shop/en/petcostore</a>
         <div class="image">
           <img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png">
         </div>
 
-        <section class="ui segment init-response">
+<!--         <section class="ui segment init-response">
           <h4>Init Response</h4>
           <div class="ui placeholder segment">
             <pre id="init-response"></pre>
@@ -247,7 +281,7 @@
           <button class="ui basic button" onclick="data()">data</button>
           <button class="ui basic button" id="latd" onclick="latd()" tabindex="0">LATD</button>
         </section>
-        <div class="ui divider"></div>
+        <div class="ui divider"></div> -->
     </div>
   </body>
 </html>
