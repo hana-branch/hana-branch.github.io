@@ -1,0 +1,22 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": [
+          "58Y3DGS3BP.com.hanapark.branch"
+        ],
+        "components": [
+          {
+            "/": "*",
+            "comment": "Matches any URL whose path is * and instructs the system to open it as a Universal link"
+          },
+          {
+            "/": "/",
+            "comment": "Matches any URL whose path is / and instructs the system to open it as a Universal link"
+          }
+        ]
+      }
+    ]
+  }
+}
