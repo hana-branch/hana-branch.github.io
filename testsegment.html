@@ -1,0 +1,67 @@
+<!DOCTYPE html lang="en">
+<html>
+  <head>
+    <title>VoiceMap Test Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script>
+      // load Branch
+      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking qrCode".split(" "), 0);
+      // init Branch
+      var options = { 
+        // enableExtendedJourneysAssist: trur, // enable or disable referring Branch link expiry for Journeys Assist
+        // extendedJourneysAssistExpiryTime : 5000 // TTL value in milliseconds for the referring Branch link. Defaults to 7 days
+      };
+      branch.init('key_live_eg1ptYB6XKv8Y0mpEXcQRfggABgi6KGx', options, function(err, data) {
+        console.log(err, data);
+      });
+    </script>
+    <!-- Styles --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
+    <style type="text/css">
+      body {
+        font-family: 'Bitstream Vera Serif Bold' !important;
+        background-color: #fcfcfc;
+        text-align: center;
+        margin: auto;
+      }
+
+      .ui.button {
+        display: inline-block;
+        margin: 7px;
+      }
+      .ui.menu .item img.logo {
+        margin-right: 1.5em;
+      }
+      .main.container {
+        margin-top: 7em;
+      }
+      .ui.image {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="">
+    <br><br>
+    <div class="ui main text container">
+      <nav class="ui fixed inverted menu">
+        <div class="branch-journeys-top"></div>
+        <div class="ui container">
+          <a href="#" class="header item">
+            <img class="logo" src="./favicon-32x32.png">
+            VoiceMap
+          </a>
+          <a href="#" class="item">Home</a>
+        </div>
+      </nav>
+    </div>
+    <main class="ui main text container">
+        <h1 class="ui header">VoiceMap Test Page</h1>
+        <div class="image">
+          <img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png">
+        </div>
+    </main>
+  </body>
+</html>
