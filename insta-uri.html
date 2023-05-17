@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="deepview-service" content="deepview-service">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,300" rel="stylesheet" type="text/css">
+    <style>
+        body {
+            margin: 0;
+            word-wrap: break-word;
+        }
+        /* ============ Portrait ============ */
+        .main-image {
+            width: 125px;
+            height: 125px;
+            margin: 20vh auto 0 auto;
+
+
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: bottom center;
+        }
+        #content-container {
+            box-sizing:border-box;
+            padding: 24px;
+            margin:0 24px 0 24px;
+            background-color: #ffffff;
+        }
+        .app-title {
+            font-size: 14px;
+            text-align: center;
+            padding-bottom: 11px;
+            text-transform: uppercase;
+        }
+        .input-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width:100%;
+            height:110px !important;
+            background-color: white;
+            -webkit-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+            -moz-box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+            box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+        }
+        .input-container {
+            width: 100%;
+            padding:0 24px;
+            text-align:center;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .form-get-the-app {
+            text-align:center;
+            padding-top: 10px;
+        }
+        .form-get-the-app > input {
+            margin-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: #FFFFFF;
+            border: 1px solid #979797;
+            border-radius: 2px;
+            font-size: 60px;
+            color: #CECECE;
+            line-height: 24px;
+            padding-left: 20px;
+        }
+        .cta-button {
+            display: block;
+            height: 62px;
+            line-height:62px;
+            background-color: #06122F;
+            border-radius: 2px;
+            font-size: 20px;
+            padding:0 20px;
+            margin: 0 20px;
+            color: #FFFFFF;
+            text-align: center;
+            text-decoration: none;
+        }
+        /* No data (portrait) */
+        @media only screen and (orientation: portrait) {
+            .card--no-data .main-image {
+
+            }
+        }
+        /* ============ Landscape ============ */
+        @media only screen and (orientation: landscape){
+            .main-image {
+                margin: 30px auto 0 auto;
+            }
+            #content-container {
+              padding: 10px 24px;
+            }
+            .input-wrapper {
+              height: 80px !important;
+            }
+            .input-container {
+              width: 50%;
+              margin: 0 auto;
+            }
+            .form-get-the-app {
+                padding-top:8px;
+            }
+            .cta-button {
+                height: 44px;
+                line-height: 44px;
+            }
+        }
+        /* Reusables */
+        .text-bold {
+            font-family: "Open Sans", Helvetica, serif;
+            font-weight: 700
+        }
+        .text-light {
+            font-family: "Open Sans", Helvetica, serif;
+            font-weight: 400;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card center">
+        <div class="main-image"></div>
+        <div id="content-container">
+            <div class="app-title text-bold">Blibli - Online Mall</div>
+        </div>
+        <div class="input-wrapper">
+            <div class="input-container">
+                <form class="form-get-the-app">
+                    <a href="https://www.blibli.com/promosi/cnc-promo-elektronik?appsWebview=true&utm_source=instagram&utm_campaign=smd_cnc_pel_promo_mei_igs&utm_medium=social&_branch_referrer=H4sIAAAAAAAAAw3C3W6CMBgA0Kdxdwr%2BAV1iDCp2K4qfyrZsN6YtKKUtfrHonE8%2FT07VtuhePU8Y9dzjiD2jGu3JRmJp8HK25646uelRSKOKCcQxF28obvPDXcldaR8kpin5XWU8TwuyCIBG9u%2BzT76O5ufdMJmHkWQsWW4FvBzUhDsG63rZflhguR8EW1aEWj8ojtd15kfD%2BbAJQS%2FqUVEOruiS0c4Fmrcoyn3eV9%2FQGcySNIMNVNe7P642yYzgaU8ptZTJfww3oFXMAAAA&fbclid=PAAabHpbvC_xicRemz9AGK9wLNaTKd9D6PG8myV19WflZIlJcT78cJJEFQbP&_i=asJPMjFtUmPJT066QJd7kkzGp5MjN083C3n7PkDj4de2upsE4Rs6katpbeST1iYP%2BEKNPOPhux05hOEB9pgSGGGmGJc&_branch_match_id=1187417849940279198" class="cta-button text-light">Get The App</a>
+                </form>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+function validateProtocol(url){
+   var parser = document.createElement("a");
+   parser.href = url; 
+   var protocol = parser.protocol.toLowerCase();
+   if ([ "javascript:", "vbscript:", "data:", "ftp:", ":", " "].indexOf(protocol) < 0) {
+      return url;}
+   return null;
+}
+
+    function isSafariBrowser(ua) {
+      return !!/^((?!chrome|android|crios|fxios).)*safari/i.test(ua);
+    }
+
+    function isGreaterThanVersion(ua, v) {
+      var match = /iPhone OS ([^ ]*)/i.exec(ua);
+      if (match && match[1]) {
+        try {
+          var version = match[1].replace(/_/gi, '.');
+          version = version.split('.');
+          version = parseFloat(version[0] + '.' + version[1]);
+          if (version >= v) {
+            return true;
+          }
+        } catch (e) {
+          return false;
+        }
+      }
+      return false;
+    }
+
+    function isSafari12Dot3OrGreater() {
+      var ua = navigator.userAgent;
+      var isSafari = isSafariBrowser(ua);
+
+      if (isSafari) {
+        return isGreaterThanVersion(ua, 12.3);
+      }
+
+      return false;
+    };
+            // Initially set isBlurred to false. If a CTA view comes up, then window.onblur() is going
+            // to be called and isBlurred will be set to true
+            let isBlurred = false;
+            let fallbackHappened = false;
+        
+            function fallback() {
+                if (document.webkitHidden || document.hidden || document.msHidden) {
+                    // The browser window is hidden. This means that the uri scheme properly opened. 
+                    // No need to fallback
+                    return;
+                }
+        
+                // The deepview is still visible. If it is blurred, this means that the uri scheme is in the 
+                // process of opening, or that the CTA view is still up. Do not fallback yet.
+                // If the fallback already happened, then don't fallback again. This way we dont publish 
+                // a bunch of duplicate clicks due to our setInterval function below.
+                const location = window.top.location.href;
+                if (isBlurred || fallbackHappened || location === "blibli:///promosi/cnc-promo-elektronik?appsWebview=true&_branch_referrer=H4sIAAAAAAAAAw3C3W6CMBgA0Kdxdwr%2BAV1iDCp2K4qfyrZsN6YtKKUtfrHonE8%2FT07VtuhePU8Y9dzjiD2jGu3JRmJp8HK25646uelRSKOKCcQxF28obvPDXcldaR8kpin5XWU8TwuyCIBG9u%2BzT76O5ufdMJmHkWQsWW4FvBzUhDsG63rZflhguR8EW1aEWj8ojtd15kfD%2BbAJQS%2FqUVEOruiS0c4Fmrcoyn3eV9%2FQGcySNIMNVNe7P642yYzgaU8ptZTJfww3oFXMAAAA&link_click_id=1187417849940279198") {
+                    return;
+                }
+                
+                fallbackHappened = true;
+                
+                if (isSafari12Dot3OrGreater()) {
+                    if (window.confirm("Open in App Store?")) {
+                        window.top.location = validateProtocol("https://www.blibli.com/promosi/cnc-promo-elektronik?appsWebview=true&utm_source=instagram&utm_campaign=smd_cnc_pel_promo_mei_igs&utm_medium=social&_branch_referrer=H4sIAAAAAAAAAw3C3W6CMBgA0Kdxdwr%2BAV1iDCp2K4qfyrZsN6YtKKUtfrHonE8%2FT07VtuhePU8Y9dzjiD2jGu3JRmJp8HK25646uelRSKOKCcQxF28obvPDXcldaR8kpin5XWU8TwuyCIBG9u%2BzT76O5ufdMJmHkWQsWW4FvBzUhDsG63rZflhguR8EW1aEWj8ojtd15kfD%2BbAJQS%2FqUVEOruiS0c4Fmrcoyn3eV9%2FQGcySNIMNVNe7P642yYzgaU8ptZTJfww3oFXMAAAA&fbclid=PAAabHpbvC_xicRemz9AGK9wLNaTKd9D6PG8myV19WflZIlJcT78cJJEFQbP&_i=asJPMjFtUmPJT066QJd7kkzGp5MjN083C3n7PkDj4de2upsE4Rs6katpbeST1iYP%2BEKNPOPhux05hOEB9pgSGGGmGJc&_branch_match_id=1187417849940279198");
+                    }
+                } else {
+                    window.top.location = validateProtocol("https://www.blibli.com/promosi/cnc-promo-elektronik?appsWebview=true&utm_source=instagram&utm_campaign=smd_cnc_pel_promo_mei_igs&utm_medium=social&_branch_referrer=H4sIAAAAAAAAAw3C3W6CMBgA0Kdxdwr%2BAV1iDCp2K4qfyrZsN6YtKKUtfrHonE8%2FT07VtuhePU8Y9dzjiD2jGu3JRmJp8HK25646uelRSKOKCcQxF28obvPDXcldaR8kpin5XWU8TwuyCIBG9u%2BzT76O5ufdMJmHkWQsWW4FvBzUhDsG63rZflhguR8EW1aEWj8ojtd15kfD%2BbAJQS%2FqUVEOruiS0c4Fmrcoyn3eV9%2FQGcySNIMNVNe7P642yYzgaU8ptZTJfww3oFXMAAAA&fbclid=PAAabHpbvC_xicRemz9AGK9wLNaTKd9D6PG8myV19WflZIlJcT78cJJEFQbP&_i=asJPMjFtUmPJT066QJd7kkzGp5MjN083C3n7PkDj4de2upsE4Rs6katpbeST1iYP%2BEKNPOPhux05hOEB9pgSGGGmGJc&_branch_match_id=1187417849940279198");
+                }
+            }
+            window.onblur = function() {
+                isBlurred = true;
+            };
+        
+            window.onfocus = function() {
+                isBlurred = false;
+                // if we end up focusing on the deepview again, this means that we should fallback
+                // because it means that the uri scheme did not open
+                fallback();
+            };
+        
+            window.onload = function() {
+                window.top.location = validateProtocol("blibli:///promosi/cnc-promo-elektronik?appsWebview=true&_branch_referrer=H4sIAAAAAAAAAw3C3W6CMBgA0Kdxdwr%2BAV1iDCp2K4qfyrZsN6YtKKUtfrHonE8%2FT07VtuhePU8Y9dzjiD2jGu3JRmJp8HK25646uelRSKOKCcQxF28obvPDXcldaR8kpin5XWU8TwuyCIBG9u%2BzT76O5ufdMJmHkWQsWW4FvBzUhDsG63rZflhguR8EW1aEWj8ojtd15kfD%2BbAJQS%2FqUVEOruiS0c4Fmrcoyn3eV9%2FQGcySNIMNVNe7P642yYzgaU8ptZTJfww3oFXMAAAA&link_click_id=1187417849940279198");
+                setTimeout(function() {
+                    // fallback();
+                }, 250);
+            }</script></body>
+</html>
