@@ -47,6 +47,7 @@
 				if ((navigator.userAgent.match(/Chrome/) && navigator.userAgent.match("Version/")) ||
 						navigator.userAgent.match("\\[FB") ||
 						navigator.userAgent.match("Instagram")) {
+					console.info("FB WEBVIEW");
 					var setURIFunction = function() {
 						addIFrame();
 						setTimeout(fallbackFunction, 750-250);
