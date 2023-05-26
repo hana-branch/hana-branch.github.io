@@ -20,6 +20,7 @@
 		}
 		
 		function validate(url) {
+			console.log("[BRANCH] validate url :", url);
 			var unescaped_value = unescapeHtml(url);
 			if (unescaped_value && validateProtocol(unescaped_value)) {
 				console.log("[BRANCH] validate unescaped_value :", unescaped_value);
