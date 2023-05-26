@@ -50,11 +50,11 @@
 						navigator.userAgent.match("Instagram")) {
 					console.info("[BRANCH] FB WEBVIEW");
 					var setURIFunction = function() {
-						addIFrame();
+						// addIFrame();
 						setTimeout(fallbackFunction, 750-250);
 					};
 					setTimeout(setURIFunction, 250);
-					return
+					return;
 				}
 				else if (navigator.userAgent.match("KAKAO") ||
 							navigator.userAgent.match("NAVER") ||
