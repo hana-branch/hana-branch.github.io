@@ -3,9 +3,18 @@
     "apps": [],
     "details": [
       {
-        "appID": "58Y3DGS3BP.com.hanapark.branch",
-        "paths": [
-          "/"
+        "appIDs": [
+          "58Y3DGS3BP.dev.hana.hanatestapp"
+        ],
+        "components": [
+          {
+            "/": "*",
+            "comment": "Matches any URL whose path is * and instructs the system to open it as a Universal link"
+          },
+          {
+            "/": "/",
+            "comment": "Matches any URL whose path is / and instructs the system to open it as a Universal link"
+          }
         ]
       }
     ]
