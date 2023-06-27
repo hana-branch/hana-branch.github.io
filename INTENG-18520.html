@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript">
+    function unescapeHtml(escaped_str) {
+        var div = document.createElement('div');
+        div.innerHTML = escaped_str;
+        var child = div.childNodes[0];
+        return child ? child.nodeValue : null;
+    }
+
+    function validateProtocol(url) {
+        var parser = document.createElement('a');
+        parser.href = url;
+        var protocol = parser.protocol.toLowerCase();
+        if (['javascript:', 'vbscript:', 'data:', 'ftp:', ':', ' '].indexOf(protocol) < 0) {
+            return url;
+        }
+        return null;
+    }
+
+    function validate(url) {
+        var unescaped_value = unescapeHtml(url);
+        if (unescaped_value && validateProtocol(unescaped_value)) {
+            return unescaped_value;
+        }
+        return '/';
+    }
+    window.onload = function() {
+        var a = "open?_branch_referrer=H4sIAAAAAAAAA8soKSkottLXL87ILyiu1EssKNDLyczL1g8G8x0LCjzdAXPYmOwjAAAA&amp;link_click_id=1198283546770835515";
+        var b = "shopsy://";
+
+        var fallbackFunction = function() {
+            if (document.webkitHidden || document.hidden) { return; }
+            window.top.location.replace(validate("market://details?id=com.flipkart.shopsy&amp;_branch_match_id=1198283546770835515&amp;referrer=link_click_id%253D1198283546770835515%2526utm_source%253DInstagram%2520Social%2526utm_campaign%253DShopsy%2520Instagram%2520Social%2526utm_medium%253Dmarketing"));
+        };
+        var addIFrame = function() {
+            var iframe = document.createElement("iframe");
+            iframe.style.border = "none";
+            iframe.style.width = "1px";
+            iframe.style.height = "1px";
+            iframe.src = validate(b + a);
+            document.body.appendChild(iframe);
+        };
+        if ((navigator.userAgent.match(/Chrome/) && navigator.userAgent.match("Version/")) ||
+            navigator.userAgent.match("\\[FB") ||
+            navigator.userAgent.match("Instagram")) {
+            var setURIFunction = function() {
+                addIFrame();
+                setTimeout(fallbackFunction, 750 - 250);
+            };
+            setTimeout(setURIFunction, 250);
+            return;
+        } else if (navigator.userAgent.match("KAKAO") ||
+            navigator.userAgent.match("NAVER") ||
+            navigator.userAgent.match("Firefox")) {
+            addIFrame();
+        } else if (!(navigator.userAgent.match("OPR") && !navigator.userAgent.match("Android 8"))) {
+            window.top.location.replace(validate(b + a));
+        }
+
+        setTimeout(fallbackFunction, 750);
+    };
+    </script>
+</head>
+<body>
+</body>
+
+</html>
