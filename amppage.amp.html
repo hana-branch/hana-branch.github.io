@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Branch Metrics AMP Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
+
+    <!-- Styles --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Branch Journey --> 
+    <style amp-custom>
+      #branch-amp-journey {
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 77px;
+          position: fixed;
+      }
+
+      .hideme {
+          width: 100%;
+          height: 77px;
+          left: 24px;
+          background-color: none;
+          position: fixed;
+      }
+
+      .close {
+          width: 24px;
+          height: 100%;
+          left: 0;
+          z-index: 10000;
+          background-color: none;
+          position: fixed;
+      }
+
+      .branch-amp-journey-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          z-index: 9999;
+      }
+
+      .donotdisplay {
+          display: none;
+      }
+    </style>
+
+    <style amp-custom>
+      body {
+        font-family: 'Bitstream Vera Serif Bold' !important;
+        background-color: #fcfcfc;
+        text-align: center;
+        margin: auto;
+      }
+    </style>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+    <script async src="https://cdn.ampproject.org/v0/amp-list-0.1.js" custom-element="amp-list"></script>
+    <script async src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js" custom-template="amp-mustache"></script>
+    <script async src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js" custom-element="amp-iframe"></script>
+    <script>
+     // load Branch
+       (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-beta-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking qrCode".split(" "), 0);
+       // init Branch
+      branch.init('key_live_ihXLdAybqSFrdiC32ID3saibwrnIyH6q', {}, function(err, data) {
+        console.log(err, data);
+      });
+    </script>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="">
+    <main class="ui main text container" style="padding-top: 250px;">
+        <a href="/" class="item">Go Back</a>
+        <h3 class="ui header">AMP HTML Page</h3>
+        <div class="image">
+          <amp-img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png" width="100" height="100" layout="responsive" style="margin: auto"></amp-img>
+
+        </div>
+    </main>
+    <amp-list tabindex=0 role="" on="tap:branch-amp-journey.hide" id="branch-amp-journey" src="https://hanadev1.app.link/branch-amp-journeys-pre?branch_key=key_live_ihXLdAybqSFrdiC32ID3saibwrnIyH6q&__aj_cid=CLIENT_ID(_s)&__amp_viewer=VIEWER&__aj_source_url=SOURCE_URL&__aj_canonical_url=CANONICAL_URL&__aj_v=1.0.0" layout=fixed-height height="77px"><template type="amp-mustache" id="journey-template"><a class="close" on="tap:branch-amp-journey.hide"></a><div class="hideme" ></div><amp-iframe class="branch-amp-journey-inner {{do_not_display}}" layout="fixed-height" height="77px" resizable src="https://DOMAIN-HERE/branch-amp-journeys?branch_key=BRANCH_KEY_HERE&__aj_cid={{__aj_cid}}&__aj_source_url={{__aj_source_url}}&__aj_canonical_url={{__aj_canonical_url}}&_audience_rule_id={{_audience_rule_id}}&_branch_view_id={{_branch_view_id}}&__aj_v=1.0.0" sandbox="allow-scripts allow-top-navigation allow-same-origin" frameborder="0"><div overflow></div></amp-iframe></template></amp-list>
+  </body>
+</html>
