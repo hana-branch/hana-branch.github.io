@@ -11,8 +11,7 @@
 
     <style amp-custom>
       body {
-        font-family: 'Bitstream Vera Serif Bold';
-        background-color: #fcfcfc;
+        font-family: 'Bebas Neue', sans-serif;
         text-align: center;
         margin: auto;
       }
@@ -27,7 +26,6 @@
         border: none;
         margin: calc(2rem - 0.14285714em) 0 1rem;
         padding: 0 0;
-        font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
         font-weight: 700;
         line-height: 1.28571429em;
         text-transform: none;
@@ -77,14 +75,6 @@
     <script async src="https://cdn.ampproject.org/v0/amp-list-0.1.js" custom-element="amp-list"></script>
     <script async src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js" custom-template="amp-mustache"></script>
     <script async src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js" custom-element="amp-iframe"></script>
-<!--     <script>
-     // load Branch
-       (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-beta-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking qrCode".split(" "), 0);
-       // init Branch
-      branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', {}, function(err, data) {
-        console.log(err, data);
-      });
-    </script> -->
   </head>
   <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="">
     <main class="ui main text container" style="padding-top: 250px;">
@@ -92,7 +82,6 @@
         <h3 class="ui header">AMP HTML Page</h3>
         <div class="image">
           <amp-img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png" width="250" height="250" layout="fixed" style="margin: auto"></amp-img>
-
         </div>
     </main>
     <amp-list tabindex=0 role="" on="tap:branch-amp-journey.hide" id="branch-amp-journey" src="https://hanadev1.app.link/branch-amp-journeys-pre?branch_key=key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2&__aj_cid=CLIENT_ID(_s)&__amp_viewer=VIEWER&__aj_source_url=SOURCE_URL&__aj_canonical_url=CANONICAL_URL&__aj_v=1.0.0" layout=fixed-height height="77px">
@@ -100,7 +89,7 @@
         <a class="close" on="tap:branch-amp-journey.hide"></a>
         <div class="hideme" ></div>
         <amp-iframe class="branch-amp-journey-inner {{do_not_display}}" layout="fixed-height" height="77px" resizable src="https://hanadev1.app.link/branch-amp-journeys?branch_key=key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2&__aj_cid={{__aj_cid}}&__aj_source_url={{__aj_source_url}}&__aj_canonical_url={{__aj_canonical_url}}&_audience_rule_id={{_audience_rule_id}}&_branch_view_id={{_branch_view_id}}&__aj_v=1.0.0" sandbox="allow-scripts allow-top-navigation allow-same-origin" frameborder="0">
-          <div overflow></div>
+        <div overflow></div>
         </amp-iframe>
       </template>
     </amp-list>
