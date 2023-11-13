@@ -39,17 +39,20 @@
           }
         };
 
+        console.log("Link Data:", linkData);
+
         const setBranchViewData = new Promise((resolve, reject) => {
           if (linkData) {
-            console.log("Link Data :", linkData);
             resolve(branch.setBranchViewData(linkData));
           }
         });
 
-        setBranchViewData.then(function(val) {
-          console.log(val);
+        setBranchViewData.then(function() {
           branch.init('key_live_ihXLdAybqSFrdiC32ID3saibwrnIyH6q', options, function(err, data) {
-            console.log(err, data);
+            if (err) {
+              console.error("[branch.io] Initialization fails : ", err);
+            }
+            console.info("[branch.io] Initialization success : ", data);
           });
         });
     </script>
