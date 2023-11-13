@@ -4,30 +4,12 @@
     <title>Branch Metrics Web SDK Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0">
-    <meta name="campaign_type" content="Website">
-    <!-- OG -->
-    <meta property="og:image"
-    content="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png">
-    <meta property="og:title" content="Hana Web App">
-    <meta property="og:description" content="Hana Branch Metrics Web SDK Example">
-    <meta data-rh="true" id="meta-og-image" name="image" content="https://boxed-web2-assets-prod-gcp.boxed.com/public/images/boxed-logo-256x256.png">
-    <!-- Smart Banner -->
-    <meta name="apple-itunes-app" content="app-id=917737838">
-
-    <!-- Icons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="https://hana-branch.github.io/apple-touch-icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="https://hana-branch.github.io/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://hana-branch.github.io/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://hana-branch.github.io/favicon-16x16.png">
-    <link rel="manifest" href="https://hana-branch.github.io/site.webmanifest">
 
     <!-- Styles --> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
 
-    <!-- UA Parser -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/UAParser.js/1.0.33/ua-parser.min.js"></script>
     <script>
      // load Branch
        (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener applyCode autoAppIndex banner closeBanner closeJourney creditHistory credits data deepview deepviewCta first getCode init link logout redeem referrals removeListener sendSMS setBranchViewData setIdentity track validateCode trackCommerceEvent logEvent disableTracking qrCode".split(" "), 0);
@@ -38,9 +20,38 @@
         // enableExtendedJourneysAssist: true, // enable or disable referring Branch link expiry for Journeys Assist
         // extendedJourneysAssistExpiryTime : 600000 // TTL value in milliseconds for the referring Branch link. Defaults to 7 days
       };
-      branch.init('key_live_ihXLdAybqSFrdiC32ID3saibwrnIyH6q', options, function(err, data) {
-        console.log(err, data);
-      });
+
+      // optional additional deep link data
+      var linkData = {
+          campaign: 'content 123',
+          channel: 'facebook',
+          feature: 'dashboard',
+          stage: 'new user',
+          tags: [ 'tag1', 'tag2', 'tag3' ],
+          alias: '',
+          data: {
+            'custom_bool': true,
+            'custom_int': Date.now(),
+            'custom_string': 'hello',
+            '$og_title': 'Title',
+            '$og_description': 'Description',
+            '$og_image_url':'http://lorempixel.com/400/400'
+          }
+        };
+
+        const setBranchViewData = new Promise((resolve, reject) => {
+          if (linkData) {
+            console.log("Link Data :", linkData);
+            resolve(branch.setBranchViewData(linkData));
+          }
+        });
+
+        setBranchViewData.then(function(val) {
+          console.log(val);
+          branch.init('key_live_ihXLdAybqSFrdiC32ID3saibwrnIyH6q', options, function(err, data) {
+            console.log(err, data);
+          });
+        });
     </script>
     <style type="text/css">
       body {
@@ -82,13 +93,11 @@
             Hana Web Test Page
           </a>
           <a href="/" class="item">Home</a>
-          <a href="/about" class="item">About</a>
-          <a href="/shop" class="item">Shop</a>
         </div>
       </nav>
     </div>
     <main class="ui main text container">
-        <h1 class="ui header">Hana Web Test</h1>
+        <h1 class="ui header">Test Web App</h1>
         <div class="image">
           <img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png" alt="main" width="300px" height="300px" style="margin: auto">
         </div>
