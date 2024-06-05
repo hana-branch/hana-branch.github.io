@@ -1,0 +1,269 @@
+module.exports = `<!DOCTYPE html>
+<html amp>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700,300" rel="stylesheet" type="text/css">
+    <style amp-custom>
+        body {
+            margin: 0;
+            word-wrap: break-word;
+            font-family: "Open Sans", Helvetica, serif;
+        }
+        /* ============ Portrait ============ */
+        .main-image {
+            width: 100%;
+            height: 250px;
+            height: 75vw;
+                background-image: url(https://images.tokopedia.net/img/mDcQBy/2024/6/1/ae481911-10d8-472d-a994-2eaf5a696d08.png);
+            background-size: cover;
+            background-position: top center;
+        }
+        #content-container {
+            box-sizing: border-box;
+            padding: 24px;
+            margin: 0 24px;
+            background-color: #fff;
+        }
+        .app-title {
+            font-size: 14px;
+            padding-bottom: 11px;
+            text-transform: uppercase;
+        }
+        .card-title {
+            font-size: 33px;
+            line-height: 36px;
+        }
+        .app-content {
+            padding-top: 10px;
+            padding-bottom: 100px;
+            font-size: 20px;
+        }
+        .input-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 110px;
+            background-color: #fff;
+            box-shadow: 0px -20px 20px -8px rgba(255,255,255,1);
+        }
+        .input-container {
+            width: 100%;
+            padding: 0 24px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .form-get-the-app {
+            display: -webkit-box;
+            display: flex;
+            text-align: center;
+            padding-top: 10px;
+            border-top: 2px solid #cecece;
+            min-height: 300px;
+        }
+        .input-label {
+            padding: 4px 10px;
+            font-size: 13px;
+            overflow: hidden;
+            word-wrap: break-word;
+            text-align: center;
+        }
+        .app-icon {
+            width: 62px;
+            height: 62px;
+            line-height: 62px;
+            background-size: 100% auto;
+                background-image: url(https://cdn.branch.io/branch-assets/1651640749206-og_image.png);
+        }
+        .cta-button {
+            -webkit-box-flex: 1;
+            flex-grow: 1;
+            height: 62px;
+            line-height: 62px;
+            background-color: #444;
+            border-radius: 2px;
+            font-size: 20px;
+            padding: 0 20px;
+            margin-left: 10px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+        /* No data (portrait) */
+        @media only screen and (orientation: portrait) {
+            .card--no-data .main-image {
+                background-image: url("http://s3-us-west-1.amazonaws.com/branch-assets/b_stripes-small.png");
+                background-size: auto;
+                background-position: top center;
+                background-repeat: repeat;
+                height: 190px;
+            }
+            .card--no-data > .app-icon {
+                position: absolute;
+                top: 160px;
+                left: 34px;
+            }
+            .card--no-data #content-container {
+                margin-top: 20px;
+            }
+        }
+        @media screen /* >= iPhone 5 */
+        and (min-device-width: 321px) {
+            .input-label {
+                font-size: 14px;
+            }
+        }
+        @media only screen /* >= iPhone 6 */
+        and (min-device-width: 375px)
+        and (orientation: portrait) {
+            .main-image {
+                height: 300px;
+                height: 80vw;
+            }
+            .app-content {
+                padding-bottom: 120px;
+            }
+            .input-wrapper {
+                height: 115px;
+            }
+        }
+        @media only screen /* >= iPhone 6+ */
+        and (min-device-width: 414px)
+        and (orientation: portrait) {
+            .main-image {
+                height: 390px;
+                height: 95vw;
+            }
+        }
+        /* ============ Landscape ============ */
+        @media only screen and (orientation: landscape){
+            .main-image {
+                position: fixed;
+                height: 100%;
+                height: 100vh;
+                width: 50%;
+            }
+            .input-wrapper {
+                right: 0;
+                left: auto;
+                width: 50%;
+            }
+            #content-container {
+                float: left;
+                width: 50%;
+                margin-left: 50%;
+            }
+            .input-wrapper {
+                height: 108px;
+            }
+            .app-content {
+                padding-bottom: 110px;
+            }
+            .form-get-the-app {
+                padding-top: 8px;
+            }
+            .input-container {
+                left: 50%;
+            }
+            .cta-button {
+                height: 44px;
+                line-height: 44px;
+                padding: 0 5px;
+                margin-left: 50px;
+            }
+            .app-icon {
+                width: 44px;
+                height: 44px;
+            }
+            /* No data (landscape) */
+            .card--no-data .main-image {
+                height: 100%;
+            }
+            .card--no-data > .app-icon {
+                display: none;
+            }
+            .card--no-data #content-container {
+                margin-top: 0;
+            }
+        }
+        @media only screen /* >= iPhone 6 */
+        and (min-device-width: 645px)
+        and (orientation: landscape) {
+            .form-get-the-app {
+                padding-top: 8px;
+            }
+            .cta-button {
+                height: 62px;
+                line-height: 62px;
+                padding: 0 20px;
+                margin-left: 70px;
+            }
+            .app-icon {
+                width: 62px;
+                height: 62px;
+                top: -2px;
+            }
+        }
+        /* Reusables */
+        .text-bold {
+            font-weight: 700
+        }
+        .text-light {
+            font-weight: 300;
+        }
+        .cta-button--no-app-icon {
+            margin-left: 0;
+        }
+    </style>
+        <link rel="alternate" href="ios-app://1001394201/tokopedia/product/2707760828?aff_unique_id&#x3D;VjgDAbqzYnPF9-F116OxJdtqXniDGXKHL0hH4cUjPSrNXZk1Rmao59by91i8Xe7CXqslKg%3D%3D&amp;channel&#x3D;whatsapp&amp;_branch_referrer&#x3D;H4sIAAAAAAAAA8soKSkottLXL8nPzi9ITclM1MvJzMvWN3F1K6ssyS1N9E4CACDtnqgiAAAA&amp;link_click_id&#x3D;link-1326705613195061104" />
+        <link rel="alternate" href="android-app://com.tokopedia.tkpd/tokopedia/product/2707760828?aff_unique_id&#x3D;VjgDAbqzYnPF9-F116OxJdtqXniDGXKHL0hH4cUjPSrNXZk1Rmao59by91i8Xe7CXqslKg%3D%3D&amp;channel&#x3D;whatsapp&amp;_branch_referrer&#x3D;H4sIAAAAAAAAA8soKSkottLXL8nPzi9ITclM1MvJzMvWN3F1K6ssyS1N9E4CACDtnqgiAAAA&amp;link_click_id&#x3D;link-1326705613195061104" />
+        <link rel="apple-touch-icon" href="https://images.tokopedia.net/img/mDcQBy/2024/6/1/ae481911-10d8-472d-a994-2eaf5a696d08.png" />
+        <meta property="al:ios:url" content="tokopedia://product/2707760828?aff_unique_id&#x3D;VjgDAbqzYnPF9-F116OxJdtqXniDGXKHL0hH4cUjPSrNXZk1Rmao59by91i8Xe7CXqslKg%3D%3D&amp;channel&#x3D;whatsapp&amp;_branch_referrer&#x3D;H4sIAAAAAAAAA8soKSkottLXL8nPzi9ITclM1MvJzMvWN3F1K6ssyS1N9E4CACDtnqgiAAAA&amp;link_click_id&#x3D;link-1326705613195061104-eyIkb2dfdGl0bGUiOiJCYW5nbyBLZWNhcCBNYW5pcyBLZW1hc2FuIFBvdWNoIFJlZmlsbCA3MjBnciBNdWx0aXBhY2siLCJ-Y3JlYXRpb25fc291cmNlIjowLCIkb2dfZGVzY3JpcHRpb24iOiJEYXJpIFVuaWxldmVyIE9mZmljaWFsIFN0b3JlIiwiJG9nX2ltYWdlX3VybCI6Imh0dHBzOi8vaW1hZ2VzLnRva29wZWRpYS5uZXQvaW1nL21EY1FCeS8yMDI0LzYvMS9hZTQ4MTkxMS0xMGQ4LTQ3MmQtYTk5NC0yZWFmNWE2OTZkMDgucG5nIiwifmZlYXR1cmUiOiJhZmZpbGlhdGUtc2hhcmUiLCIrdXJsIjoiaHR0cHM6Ly90b2tvcGVkaWEubGluay80RUZ2eXRtdWFLYiIsIiRkZXNrdG9wX3VybCI6Imh0dHBzOi8vd3d3LnRva29wZWRpYS5jb20vdW5pbGV2ZXIvYmFuZ28ta2VjYXAtbWFuaXMta2VtYXNhbi1wb3VjaC1yZWZpbGwtNzIwZ3ItbXVsdGlwYWNrP2FmZl91bmlxdWVfaWQ9VmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRCZjaGFubmVsPXdoYXRzYXBwIiwiJGlvc19kZWVwbGlua19wYXRoIjoicHJvZHVjdC8yNzA3NzYwODI4P2FmZl91bmlxdWVfaWQ9VmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRCZjaGFubmVsPXdoYXRzYXBwIiwiJGFuZHJvaWRfZGVlcGxpbmtfcGF0aCI6InByb2R1Y3QvMjcwNzc2MDgyOD9hZmZfdW5pcXVlX2lkPVZqZ0RBYnF6WW5QRjktRjExNk94SmR0cVhuaURHWEtITDBoSDRjVWpQU3JOWFprMVJtYW81OWJ5OTFpOFhlN0NYcXNsS2clM0QlM0QmY2hhbm5lbD13aGF0c2FwcCIsIiRjYW5vbmljYWxfaWRlbnRpZmllciI6IiIsIn5pZCI6IjEzMjY3MDU2MTMxOTUwNjExMDQiLCJ-Y2FtcGFpZ24iOiJhZmZpbGlhdGVzaGFyZS1wZHAtVmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRC0yNzA3NzYwODI4LTAtMDUwNjI0IiwiJGFuZHJvaWRfdXJsIjoiaHR0cHM6Ly93d3cudG9rb3BlZGlhLmNvbS91bmlsZXZlci9iYW5nby1rZWNhcC1tYW5pcy1rZW1hc2FuLXBvdWNoLXJlZmlsbC03MjBnci1tdWx0aXBhY2s_YWZmX3VuaXF1ZV9pZD1WamdEQWJxelluUEY5LUYxMTZPeEpkdHFYbmlER1hLSEwwaEg0Y1VqUFNyTlhaazFSbWFvNTlieTkxaThYZTdDWHFzbEtnJTNEJTNEJmNoYW5uZWw9d2hhdHNhcHAiLCJ-Y2hhbm5lbCI6IndoYXRzYXBwIiwiJGlvc191cmwiOiJodHRwczovL3d3dy50b2tvcGVkaWEuY29tL3VuaWxldmVyL2JhbmdvLWtlY2FwLW1hbmlzLWtlbWFzYW4tcG91Y2gtcmVmaWxsLTcyMGdyLW11bHRpcGFjaz9hZmZfdW5pcXVlX2lkPVZqZ0RBYnF6WW5QRjktRjExNk94SmR0cVhuaURHWEtITDBoSDRjVWpQU3JOWFprMVJtYW81OWJ5OTFpOFhlN0NYcXNsS2clM0QlM0QmY2hhbm5lbD13aGF0c2FwcCIsIitkb21haW4iOiJ0b2tvcGVkaWEubGluayIsIitjbGlja190aW1lc3RhbXAiOjE3MTc2MzAyNzR9" />
+        <meta name="twitter:app:url:iphone" content="tokopedia://product/2707760828?aff_unique_id&#x3D;VjgDAbqzYnPF9-F116OxJdtqXniDGXKHL0hH4cUjPSrNXZk1Rmao59by91i8Xe7CXqslKg%3D%3D&amp;channel&#x3D;whatsapp&amp;_branch_referrer&#x3D;H4sIAAAAAAAAA8soKSkottLXL8nPzi9ITclM1MvJzMvWN3F1K6ssyS1N9E4CACDtnqgiAAAA&amp;link_click_id&#x3D;link-1326705613195061104-eyIkb2dfdGl0bGUiOiJCYW5nbyBLZWNhcCBNYW5pcyBLZW1hc2FuIFBvdWNoIFJlZmlsbCA3MjBnciBNdWx0aXBhY2siLCJ-Y3JlYXRpb25fc291cmNlIjowLCIkb2dfZGVzY3JpcHRpb24iOiJEYXJpIFVuaWxldmVyIE9mZmljaWFsIFN0b3JlIiwiJG9nX2ltYWdlX3VybCI6Imh0dHBzOi8vaW1hZ2VzLnRva29wZWRpYS5uZXQvaW1nL21EY1FCeS8yMDI0LzYvMS9hZTQ4MTkxMS0xMGQ4LTQ3MmQtYTk5NC0yZWFmNWE2OTZkMDgucG5nIiwifmZlYXR1cmUiOiJhZmZpbGlhdGUtc2hhcmUiLCIrdXJsIjoiaHR0cHM6Ly90b2tvcGVkaWEubGluay80RUZ2eXRtdWFLYiIsIiRkZXNrdG9wX3VybCI6Imh0dHBzOi8vd3d3LnRva29wZWRpYS5jb20vdW5pbGV2ZXIvYmFuZ28ta2VjYXAtbWFuaXMta2VtYXNhbi1wb3VjaC1yZWZpbGwtNzIwZ3ItbXVsdGlwYWNrP2FmZl91bmlxdWVfaWQ9VmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRCZjaGFubmVsPXdoYXRzYXBwIiwiJGlvc19kZWVwbGlua19wYXRoIjoicHJvZHVjdC8yNzA3NzYwODI4P2FmZl91bmlxdWVfaWQ9VmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRCZjaGFubmVsPXdoYXRzYXBwIiwiJGFuZHJvaWRfZGVlcGxpbmtfcGF0aCI6InByb2R1Y3QvMjcwNzc2MDgyOD9hZmZfdW5pcXVlX2lkPVZqZ0RBYnF6WW5QRjktRjExNk94SmR0cVhuaURHWEtITDBoSDRjVWpQU3JOWFprMVJtYW81OWJ5OTFpOFhlN0NYcXNsS2clM0QlM0QmY2hhbm5lbD13aGF0c2FwcCIsIiRjYW5vbmljYWxfaWRlbnRpZmllciI6IiIsIn5pZCI6IjEzMjY3MDU2MTMxOTUwNjExMDQiLCJ-Y2FtcGFpZ24iOiJhZmZpbGlhdGVzaGFyZS1wZHAtVmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRC0yNzA3NzYwODI4LTAtMDUwNjI0IiwiJGFuZHJvaWRfdXJsIjoiaHR0cHM6Ly93d3cudG9rb3BlZGlhLmNvbS91bmlsZXZlci9iYW5nby1rZWNhcC1tYW5pcy1rZW1hc2FuLXBvdWNoLXJlZmlsbC03MjBnci1tdWx0aXBhY2s_YWZmX3VuaXF1ZV9pZD1WamdEQWJxelluUEY5LUYxMTZPeEpkdHFYbmlER1hLSEwwaEg0Y1VqUFNyTlhaazFSbWFvNTlieTkxaThYZTdDWHFzbEtnJTNEJTNEJmNoYW5uZWw9d2hhdHNhcHAiLCJ-Y2hhbm5lbCI6IndoYXRzYXBwIiwiJGlvc191cmwiOiJodHRwczovL3d3dy50b2tvcGVkaWEuY29tL3VuaWxldmVyL2JhbmdvLWtlY2FwLW1hbmlzLWtlbWFzYW4tcG91Y2gtcmVmaWxsLTcyMGdyLW11bHRpcGFjaz9hZmZfdW5pcXVlX2lkPVZqZ0RBYnF6WW5QRjktRjExNk94SmR0cVhuaURHWEtITDBoSDRjVWpQU3JOWFprMVJtYW81OWJ5OTFpOFhlN0NYcXNsS2clM0QlM0QmY2hhbm5lbD13aGF0c2FwcCIsIitkb21haW4iOiJ0b2tvcGVkaWEubGluayIsIitjbGlja190aW1lc3RhbXAiOjE3MTc2MzAyNzR9">
+        <meta property="al:ios:app_store_id" content="1001394201" />
+        <meta name="twitter:app:id:iphone" content="1001394201">
+        <meta property="al:ios:app_name" content="Tokopedia" />
+        <meta name="twitter:app:name:iphone" content="Tokopedia">
+        <meta property="al:android:url" content="tokopedia://product/2707760828?aff_unique_id&#x3D;VjgDAbqzYnPF9-F116OxJdtqXniDGXKHL0hH4cUjPSrNXZk1Rmao59by91i8Xe7CXqslKg%3D%3D&amp;channel&#x3D;whatsapp&amp;_branch_referrer&#x3D;H4sIAAAAAAAAA8soKSkottLXL8nPzi9ITclM1MvJzMvWN3F1K6ssyS1N9E4CACDtnqgiAAAA&amp;link_click_id&#x3D;link-1326705613195061104-eyIkb2dfdGl0bGUiOiJCYW5nbyBLZWNhcCBNYW5pcyBLZW1hc2FuIFBvdWNoIFJlZmlsbCA3MjBnciBNdWx0aXBhY2siLCJ-Y3JlYXRpb25fc291cmNlIjowLCIkb2dfZGVzY3JpcHRpb24iOiJEYXJpIFVuaWxldmVyIE9mZmljaWFsIFN0b3JlIiwiJG9nX2ltYWdlX3VybCI6Imh0dHBzOi8vaW1hZ2VzLnRva29wZWRpYS5uZXQvaW1nL21EY1FCeS8yMDI0LzYvMS9hZTQ4MTkxMS0xMGQ4LTQ3MmQtYTk5NC0yZWFmNWE2OTZkMDgucG5nIiwifmZlYXR1cmUiOiJhZmZpbGlhdGUtc2hhcmUiLCIrdXJsIjoiaHR0cHM6Ly90b2tvcGVkaWEubGluay80RUZ2eXRtdWFLYiIsIiRkZXNrdG9wX3VybCI6Imh0dHBzOi8vd3d3LnRva29wZWRpYS5jb20vdW5pbGV2ZXIvYmFuZ28ta2VjYXAtbWFuaXMta2VtYXNhbi1wb3VjaC1yZWZpbGwtNzIwZ3ItbXVsdGlwYWNrP2FmZl91bmlxdWVfaWQ9VmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRCZjaGFubmVsPXdoYXRzYXBwIiwiJGlvc19kZWVwbGlua19wYXRoIjoicHJvZHVjdC8yNzA3NzYwODI4P2FmZl91bmlxdWVfaWQ9VmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRCZjaGFubmVsPXdoYXRzYXBwIiwiJGFuZHJvaWRfZGVlcGxpbmtfcGF0aCI6InByb2R1Y3QvMjcwNzc2MDgyOD9hZmZfdW5pcXVlX2lkPVZqZ0RBYnF6WW5QRjktRjExNk94SmR0cVhuaURHWEtITDBoSDRjVWpQU3JOWFprMVJtYW81OWJ5OTFpOFhlN0NYcXNsS2clM0QlM0QmY2hhbm5lbD13aGF0c2FwcCIsIiRjYW5vbmljYWxfaWRlbnRpZmllciI6IiIsIn5pZCI6IjEzMjY3MDU2MTMxOTUwNjExMDQiLCJ-Y2FtcGFpZ24iOiJhZmZpbGlhdGVzaGFyZS1wZHAtVmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRC0yNzA3NzYwODI4LTAtMDUwNjI0IiwiJGFuZHJvaWRfdXJsIjoiaHR0cHM6Ly93d3cudG9rb3BlZGlhLmNvbS91bmlsZXZlci9iYW5nby1rZWNhcC1tYW5pcy1rZW1hc2FuLXBvdWNoLXJlZmlsbC03MjBnci1tdWx0aXBhY2s_YWZmX3VuaXF1ZV9pZD1WamdEQWJxelluUEY5LUYxMTZPeEpkdHFYbmlER1hLSEwwaEg0Y1VqUFNyTlhaazFSbWFvNTlieTkxaThYZTdDWHFzbEtnJTNEJTNEJmNoYW5uZWw9d2hhdHNhcHAiLCJ-Y2hhbm5lbCI6IndoYXRzYXBwIiwiJGlvc191cmwiOiJodHRwczovL3d3dy50b2tvcGVkaWEuY29tL3VuaWxldmVyL2JhbmdvLWtlY2FwLW1hbmlzLWtlbWFzYW4tcG91Y2gtcmVmaWxsLTcyMGdyLW11bHRpcGFjaz9hZmZfdW5pcXVlX2lkPVZqZ0RBYnF6WW5QRjktRjExNk94SmR0cVhuaURHWEtITDBoSDRjVWpQU3JOWFprMVJtYW81OWJ5OTFpOFhlN0NYcXNsS2clM0QlM0QmY2hhbm5lbD13aGF0c2FwcCIsIitkb21haW4iOiJ0b2tvcGVkaWEubGluayIsIitjbGlja190aW1lc3RhbXAiOjE3MTc2MzAyNzR9" />
+        <meta name="twitter:app:url:googleplay" content="tokopedia://product/2707760828?aff_unique_id&#x3D;VjgDAbqzYnPF9-F116OxJdtqXniDGXKHL0hH4cUjPSrNXZk1Rmao59by91i8Xe7CXqslKg%3D%3D&amp;channel&#x3D;whatsapp&amp;_branch_referrer&#x3D;H4sIAAAAAAAAA8soKSkottLXL8nPzi9ITclM1MvJzMvWN3F1K6ssyS1N9E4CACDtnqgiAAAA&amp;link_click_id&#x3D;link-1326705613195061104-eyIkb2dfdGl0bGUiOiJCYW5nbyBLZWNhcCBNYW5pcyBLZW1hc2FuIFBvdWNoIFJlZmlsbCA3MjBnciBNdWx0aXBhY2siLCJ-Y3JlYXRpb25fc291cmNlIjowLCIkb2dfZGVzY3JpcHRpb24iOiJEYXJpIFVuaWxldmVyIE9mZmljaWFsIFN0b3JlIiwiJG9nX2ltYWdlX3VybCI6Imh0dHBzOi8vaW1hZ2VzLnRva29wZWRpYS5uZXQvaW1nL21EY1FCeS8yMDI0LzYvMS9hZTQ4MTkxMS0xMGQ4LTQ3MmQtYTk5NC0yZWFmNWE2OTZkMDgucG5nIiwifmZlYXR1cmUiOiJhZmZpbGlhdGUtc2hhcmUiLCIrdXJsIjoiaHR0cHM6Ly90b2tvcGVkaWEubGluay80RUZ2eXRtdWFLYiIsIiRkZXNrdG9wX3VybCI6Imh0dHBzOi8vd3d3LnRva29wZWRpYS5jb20vdW5pbGV2ZXIvYmFuZ28ta2VjYXAtbWFuaXMta2VtYXNhbi1wb3VjaC1yZWZpbGwtNzIwZ3ItbXVsdGlwYWNrP2FmZl91bmlxdWVfaWQ9VmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRCZjaGFubmVsPXdoYXRzYXBwIiwiJGlvc19kZWVwbGlua19wYXRoIjoicHJvZHVjdC8yNzA3NzYwODI4P2FmZl91bmlxdWVfaWQ9VmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRCZjaGFubmVsPXdoYXRzYXBwIiwiJGFuZHJvaWRfZGVlcGxpbmtfcGF0aCI6InByb2R1Y3QvMjcwNzc2MDgyOD9hZmZfdW5pcXVlX2lkPVZqZ0RBYnF6WW5QRjktRjExNk94SmR0cVhuaURHWEtITDBoSDRjVWpQU3JOWFprMVJtYW81OWJ5OTFpOFhlN0NYcXNsS2clM0QlM0QmY2hhbm5lbD13aGF0c2FwcCIsIiRjYW5vbmljYWxfaWRlbnRpZmllciI6IiIsIn5pZCI6IjEzMjY3MDU2MTMxOTUwNjExMDQiLCJ-Y2FtcGFpZ24iOiJhZmZpbGlhdGVzaGFyZS1wZHAtVmpnREFicXpZblBGOS1GMTE2T3hKZHRxWG5pREdYS0hMMGhINGNValBTck5YWmsxUm1hbzU5Ynk5MWk4WGU3Q1hxc2xLZyUzRCUzRC0yNzA3NzYwODI4LTAtMDUwNjI0IiwiJGFuZHJvaWRfdXJsIjoiaHR0cHM6Ly93d3cudG9rb3BlZGlhLmNvbS91bmlsZXZlci9iYW5nby1rZWNhcC1tYW5pcy1rZW1hc2FuLXBvdWNoLXJlZmlsbC03MjBnci1tdWx0aXBhY2s_YWZmX3VuaXF1ZV9pZD1WamdEQWJxelluUEY5LUYxMTZPeEpkdHFYbmlER1hLSEwwaEg0Y1VqUFNyTlhaazFSbWFvNTlieTkxaThYZTdDWHFzbEtnJTNEJTNEJmNoYW5uZWw9d2hhdHNhcHAiLCJ-Y2hhbm5lbCI6IndoYXRzYXBwIiwiJGlvc191cmwiOiJodHRwczovL3d3dy50b2tvcGVkaWEuY29tL3VuaWxldmVyL2JhbmdvLWtlY2FwLW1hbmlzLWtlbWFzYW4tcG91Y2gtcmVmaWxsLTcyMGdyLW11bHRpcGFjaz9hZmZfdW5pcXVlX2lkPVZqZ0RBYnF6WW5QRjktRjExNk94SmR0cVhuaURHWEtITDBoSDRjVWpQU3JOWFprMVJtYW81OWJ5OTFpOFhlN0NYcXNsS2clM0QlM0QmY2hhbm5lbD13aGF0c2FwcCIsIitkb21haW4iOiJ0b2tvcGVkaWEubGluayIsIitjbGlja190aW1lc3RhbXAiOjE3MTc2MzAyNzR9">
+        <meta property="al:android:package" content="com.tokopedia.tkpd" />
+        <meta name="twitter:app:id:googleplay" content="com.tokopedia.tkpd">
+        <meta property="al:android:app_name" content="Tokopedia" />
+        <meta name="twitter:app:name:googleplay" content="Tokopedia">
+                <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:image" content="https://images.tokopedia.net/img/mDcQBy/2024/6/1/ae481911-10d8-472d-a994-2eaf5a696d08.png" />
+            <meta name="twitter:image:src" content="https://images.tokopedia.net/img/mDcQBy/2024/6/1/ae481911-10d8-472d-a994-2eaf5a696d08.png" />
+        <title>Bango Kecap Manis Kemasan Pouch Refill 720gr Multipack</title>
+        <meta property="og:title" content="Bango Kecap Manis Kemasan Pouch Refill 720gr Multipack" />
+            <meta name="twitter:title" content="Bango Kecap Manis Kemasan Pouch Refill 720gr Multipack" />
+        <meta property="og:description" content="Dari Unilever Official Store" />
+            <meta name="twitter:description" content="Dari Unilever Official Store" />
+        <meta property="fb:app_id" content="126665634029576" />
+
+
+        <meta name="twitter:app:country" content="US">
+</head>
+<body>
+<div class="card center">
+    <div class="main-image"></div>
+    <div id="content-container">
+        <div class="app-title text-bold">Tokopedia</div>
+        <div class="card-title text-light">Bango Kecap Manis Kemasan Pouch Refill 720gr Multipack</div>
+        <div class="app-content text-light">Dari Unilever Official Store</div>
+    </div>
+    <div class="input-wrapper">
+        <div class="input-container">
+            <div class="input-label text-light">See this content immediately after install</div>
+            <div class="form-get-the-app">
+                        <div class="app-icon">&nbsp;</div>
+                <a href="https://tokopedia-alternate.app.link/4EFvytmuaKb?__branch_flow_type&#x3D;viewapp&amp;__branch_flow_id&#x3D;1327044432299987434&amp;__branch_mobile_deepview_type&#x3D;1" class="cta-button text-light">
+                    Get The App
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>`;
