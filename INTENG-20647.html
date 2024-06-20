@@ -34,9 +34,10 @@
         console.log(event, data);
         switch (event) {
           case 'didShowJourney':
+            // you can remove setTimeout if this is not needed. 
             setTimeout(function(){
               document.querySelector("#uhc-store-header").style.top = "76px";
-            }, 200);
+            }, 100);
             break;
           case 'didCloseJourney': 
             document.querySelector("#uhc-store-header").style.top = "0";
