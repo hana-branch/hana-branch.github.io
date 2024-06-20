@@ -30,6 +30,25 @@
         console.info("[BranchWebSDK][branch.io] Initialization success: ", data);
       });
 
+      var listener = function(event, data) {
+        console.log(event, data);
+        switch (event) {
+          case 'didShowJourney':
+            setTimeout(function(){
+              document.querySelector("#uhc-store-header").style.top = "76px";
+            }, 200);
+            break;
+          case 'didCloseJourney': 
+            document.querySelector("#uhc-store-header").style.top = "0";
+            break;
+          default:
+            return;
+        }
+      }
+
+      branch.addListener('didShowJourney', listener);
+      branch.addListener('didCloseJourney', listener);
+
       function tiggerCustomEvent() {
         var custom_data = {
           "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
@@ -47,13 +66,6 @@
           }
        );
       }
-
-      function loadImage() {
-        setTimeout(function(){
-          document.querySelector("#uhc-store-header").style.top = "76px"
-         }, 300);
-      }
-
     </script>
     <style type="text/css">
       body {
@@ -78,7 +90,7 @@
       }
     </style>
   </head>
-  <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="" onload="loadImage()">
+  <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="">
     <br><br>
     <abyss-parcel import="uhc-header-component" domain="uhc" endpoint="www.uhc.com" variation="master" lang="en"></abyss-parcel>
     <main class="ui main text container">
