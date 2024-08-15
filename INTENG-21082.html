@@ -10,63 +10,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
-    <!-- UHC -->
-    <link rel="stylesheet" href="https://www.uhc.com/uhccom-api/static/app/v-1.9.0/header.css" type="text/css">
-    <link rel="stylesheet" href="https://www.uhc.com/etc.clientlibs/uhcfoundation/clientlibs/clientlib-site.min.4d9cc9908c333b5ccd88042cb20d1c29.css" type="text/css">
-    <script src="https://www.uhc.com/uhccom-api/static/app/v-1.9.0/uhc-header-component.parcel.js"></script>
 
     <script>
       // load Branch
       (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener banner closeBanner closeJourney data deepview deepviewCta first init link logout removeListener setBranchViewData setIdentity track trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback qrCode setRequestMetaData setAPIUrl getAPIUrl setDMAParamsForEEA".split(" "), 0);
 
-      var options = {
-      };
-
       // init Branch
-      branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', options, function(err, data) {
+      branch.init('key_live_oEeluNXWmF2S7SpiES3zxlcmzDlE1L6p', {}, function(err, data) {
         if (err) {
           console.error("[BranchWebSDK][branch.io] Initialization fails: ", err);
         }
         console.info("[BranchWebSDK][branch.io] Initialization success: ", data);
       });
 
+      // Listen for all events
       var listener = function(event, data) {
-        console.log(event, data);
-        switch (event) {
-          case 'didShowJourney':
-            // you can remove setTimeout if this is not needed. 
-            setTimeout(function(){
-              document.querySelector("#uhc-store-header").style.top = "76px";
-            }, 100);
-            break;
-          case 'didCloseJourney': 
-            document.querySelector("#uhc-store-header").style.top = "0";
-            break;
-          default:
-            return;
-        }
+        console.log("[BranchWebSDK][Listner]", event, data);
       }
-
-      branch.addListener('didShowJourney', listener);
-      branch.addListener('didCloseJourney', listener);
-
-      function tiggerCustomEvent() {
-        var custom_data = {
-          "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
-          "Custom_Event_Property_Key2": "Custom_Event_Property_val2"
-       };
-       
-       branch.logEvent(
-          'CUSTOM WEB TEST EVENT',
-          'custom_event_name',
-          custom_data,
-          function(err) {
-            if (err) {
-              console.error("[BranchWebSDK][branch.io] Track the custom event 'CUSTOM WEB TEST EVENT' fails: ", err);
-            }
-          }
-       );
-      }
+      branch.addListener(listener);
     </script>
     <style type="text/css">
       body {
@@ -93,15 +54,10 @@
   </head>
   <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="">
     <br><br>
-    <abyss-parcel import="uhc-header-component" domain="uhc" endpoint="www.uhc.com" variation="master" lang="en"></abyss-parcel>
     <main class="ui main text container">
         <h1 class="ui header">Test Web App</h1>
         <div class="image">
           <img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png" alt="main" width="300px" height="300px" style="margin: auto">
-          <img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png" alt="main" width="300px" height="300px" style="margin: auto">
-          <section class="methods">  
-            <button class="ui basic button" onclick="tiggerCustomEvent()">Create Custom Event</button>
-          </section>
         </div>
     </main>
   </body>
