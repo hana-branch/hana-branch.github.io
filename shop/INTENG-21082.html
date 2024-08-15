@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Branch Metrics Web SDK Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0">
+    <meta name="branch:deeplink:is_first_session" content="true" />
+
+    <!-- Styles --> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
+
+    <script>
+      // load Branch
+      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-latest.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener banner closeBanner closeJourney data deepview deepviewCta first init link logout removeListener setBranchViewData setIdentity track trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback qrCode setRequestMetaData setAPIUrl getAPIUrl setDMAParamsForEEA".split(" "), 0);
+
+      // init Branch
+      branch.init('key_live_oEeluNXWmF2S7SpiES3zxlcmzDlE1L6p', {}, function(err, data) {
+        if (err) {
+          console.error("[BranchWebSDK][branch.io] Initialization fails: ", err);
+        }
+        console.info("[BranchWebSDK][branch.io] Initialization success: ", data);
+      });
+
+      // Listen for all events
+      var listener = function(event, data) {
+        console.log("[BranchWebSDK][Listner]", event, data);
+      }
+      branch.addListener(listener);
+    </script>
+    <style type="text/css">
+      body {
+        font-family: 'Bitstream Vera Serif Bold' !important;
+        background-color: #fcfcfc;
+        text-align: center;
+        margin: auto;
+      }
+      .logo {
+        width: 35px;
+        height: 35px;
+      }
+      .ui.menu .item img.logo {
+        margin-right: 1.5em;
+      }
+      .methods {
+        margin-top: 3em;
+      }
+      .ui.basic.button {
+        background-color: #000 !important;
+        color: #fff !important;
+      }
+    </style>
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1063.0" data-gr-ext-installed="">
+    <br><br>
+    <main class="ui main text container">
+        <h1 class="ui header">Test Web App</h1>
+        <div class="image">
+          <img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png" alt="main" width="300px" height="300px" style="margin: auto">
+        </div>
+    </main>
+  </body>
+</html>
