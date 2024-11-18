@@ -3,9 +3,30 @@
     "apps": [],
     "details": [
       {
-        "appID": "58Y3DGS3BP.com.hanapark.branch",
-        "paths": [
-          "/"
+        "appIDs": [
+          "58Y3DGS3BP.dev.hana.hanatestapp"
+        ],
+        "components": [
+          {
+            "/": "*",
+            "?": {
+              "$web_only": "true"
+            },
+            "exclude": true,
+            "comment": "Matches any URL whose path is * and which has a query item with name '$web_only' and value 'true' and instructs the system NOT to open it as a Universal link"
+          },
+          {
+            "/": "*",
+            "?": {
+              "%24web_only": "true"
+            },
+            "exclude": true,
+            "comment": "Matches any URL whose path is * and which has a query item with name '%24web_only' and value 'true' and instructs the system NOT to open it as a Universal link"
+          },
+          {
+            "/": "/uni/*",
+            "comment": "Matches any URL whose path is /uni/* and instructs the system to open it as a Universal link"
+          }
         ]
       }
     ]

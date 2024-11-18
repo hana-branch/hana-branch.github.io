@@ -5,7 +5,7 @@
     ],
     "target": {
       "namespace": "android_app",
-      "package_name": "example.com.hanatestapp",
+      "package_name": "dev.hana.hanatestapp",
       "sha256_cert_fingerprints": [
         "FC:35:DB:7A:A0:53:98:35:AD:A5:D3:4D:B5:39:F1:81:9D:EB:9E:29:D3:B9:11:25:A1:4E:0D:ED:7F:03:7B:CB"
       ]

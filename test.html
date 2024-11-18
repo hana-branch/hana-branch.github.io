@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0">
     <meta name="branch:deeplink:is_first_session" content="true" />
-
+    <meta name="branch:deeplink:type" content="good food" />
+    <meta name="branch:deeplink:type" content="food" />
     <!-- Styles --> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Google Font -->
@@ -15,6 +16,9 @@
       (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-2.85.0.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener banner closeBanner closeJourney data deepview deepviewCta first init link logout removeListener setBranchViewData setIdentity track trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback qrCode setRequestMetaData setAPIUrl getAPIUrl setDMAParamsForEEA".split(" "), 0);
 
       var options = {
+        make_new_link: false,
+        enableExtendedJourneysAssist: true, // enable or disable referring Branch link expiry for Journeys Assist
+        extendedJourneysAssistExpiryTime : 5000 // T
       };
       // init Branch
       branch.init('key_live_fdGefNezUn2f4SqsEYE6sljpDwmRPOl2', options, function(err, data) {
@@ -72,7 +76,6 @@
     <br><br>
     <div class="ui main text container">
       <nav class="ui fixed inverted menu">
-        <div class="branch-journeys-top"></div>
         <div class="ui container">
           <a href="#" class="header item">
             <img class="logo" src="./favicon-32x32.png" alt="logo">
