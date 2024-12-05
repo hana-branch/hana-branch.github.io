@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Whatsapp Debug</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0">
+    <script>
+      window.onload = function() {
+        document.querySelector("#user-agent").innerHTML = window.navigator.userAgent;
+      };
+    </script>
+  </head>
+  <body>
+    <br><br>
+    <main class="ui main text container">
+        <h1 class="ui header">Whatsapp Debug</h1><br><br>
+        <div class="image">
+          <section class="methods">
+            <h3>My User Agents: </h3><p id="user-agent"></p>
+            <a href="https://hanadev1.app.link/4ww5iySC5Ob">https://hanadev1.app.link/4ww5iySC5Ob</a>
+            <a href="https://thedermaco.app.link/fdSVHXxT2Ob">https://thedermaco.app.link/fdSVHXxT2Ob</a>
+          </section>
+        </div>
+    </main>
+  </body>
+</html>
