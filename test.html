@@ -18,8 +18,10 @@
       var options = {
         make_new_link: false,
         enableExtendedJourneysAssist: true, // enable or disable referring Branch link expiry for Journeys Assist
-        extendedJourneysAssistExpiryTime : 5000 // T
+        extendedJourneysAssistExpiryTime : 5000,
+        tracking_disabled:true
       };
+
       // init Branch
       branch.init('key_live_', options, function(err, data) {
         if (err) {
@@ -27,6 +29,8 @@
         }
         console.info("[BranchWebSDK][branch.io] Initialization success: ", data);
       });
+
+
 
       function tiggerCustomEvent() {
         var custom_data = {
