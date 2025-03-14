@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>IG Webview Debug</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0">
+    <script>
+      window.onload = function() {
+        document.querySelector("#user-agent").innerHTML = window.navigator.userAgent;
+        setTimeout(function() {
+          window.top.location = "BajajServiceAppUAT://open?_branch_referrer=H4sIAAAAAAAAA0XKsQ6DIBAA0K%2BpoyKCqU1IZ5NOXToSlBMvFTDnGTv12%2BvW%2Bb2Zed1uVTXK8CndupYLpnf1mvjAGB79c7hfpHLJU0ZvCTwSjGwZI%2BSdjRZCFGfYCf8YswcjC2sHcmmc7bTkw6I3tZJdrbRWjWzrayd02xRfggmIMIVz52MDMn3a2AVy8Qf08wIZmwAAAA%3D%3D&link_click_id=1429145543240919041";
+         }, 5000);
+      };
+    </script>
+  </head>
+  <body>
+    <br><br>
+    <main class="ui main text container">
+        <h1 class="ui header">IG Webview Debug</h1><br><br>
+        <div>
+          <h3>My User Agents: </h3>
+            <p id="user-agent"></p>
+          <br><br>
+        </div>
+    </main>
+  </body>
+</html>
