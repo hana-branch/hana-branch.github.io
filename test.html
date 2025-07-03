@@ -4,52 +4,10 @@
     <title>Branch Metrics Web SDK Example</title>
     <meta charset="utf-8">
     <meta name="viewport" content="height=device-height width=device-width, initial-scale=1.0">
-    <meta name="branch:deeplink:is_first_session" content="true" />
-    <meta name="branch:deeplink:type" content="good food" />
-    <meta name="branch:deeplink:type" content="food" />
     <!-- Styles --> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap" rel="stylesheet">
-    <script>
-      // load Branch
-      (function(b,r,a,n,c,h,_,s,d,k){if(!b[n]||!b[n]._q){for(;s<_.length;)c(h,_[s++]);d=r.createElement(a);d.async=1;d.src="https://cdn.branch.io/branch-2.85.0.min.js";k=r.getElementsByTagName(a)[0];k.parentNode.insertBefore(d,k);b[n]=h}})(window,document,"script","branch",function(b,r){b[r]=function(){b._q.push([r,arguments])}},{_q:[],_v:1},"addListener banner closeBanner closeJourney data deepview deepviewCta first init link logout removeListener setBranchViewData setIdentity track trackCommerceEvent logEvent disableTracking getBrowserFingerprintId crossPlatformIds lastAttributedTouchData setAPIResponseCallback qrCode setRequestMetaData setAPIUrl getAPIUrl setDMAParamsForEEA".split(" "), 0);
-
-      var options = {
-        make_new_link: false,
-        enableExtendedJourneysAssist: true, // enable or disable referring Branch link expiry for Journeys Assist
-        extendedJourneysAssistExpiryTime : 5000,
-        tracking_disabled:true
-      };
-
-      // init Branch
-      branch.init('key_live_', options, function(err, data) {
-        if (err) {
-          console.error("[BranchWebSDK][branch.io] Initialization fails: ", err);
-        }
-        console.info("[BranchWebSDK][branch.io] Initialization success: ", data);
-      });
-
-
-
-      function tiggerCustomEvent() {
-        var custom_data = {
-          "Custom_Event_Property_Key1": "Custom_Event_Property_val1",
-          "Custom_Event_Property_Key2": "Custom_Event_Property_val2"
-       };
-       
-       branch.logEvent(
-          'CUSTOM WEB TEST EVENT',
-          'custom_event_name',
-          custom_data,
-          function(err) {
-            if (err) {
-              console.error("[BranchWebSDK][branch.io] Track the custom event 'CUSTOM WEB TEST EVENT' fails: ", err);
-            }
-          }
-       );
-      }
-    </script>
     <style type="text/css">
       body {
         font-family: 'Bitstream Vera Serif Bold' !important;
@@ -93,7 +51,10 @@
         <div class="image">
           <img class="ui medium rounded image" src="https://is3-ssl.mzstatic.com/image/thumb/Purple114/v4/6b/fe/0e/6bfe0ecc-497e-4552-648f-f085badb71f8/AppIcon-0-0-1x_U007emarketing-0-0-0-10-85-220.png/246x0w.png" alt="main" width="300px" height="300px" style="margin: auto">
           <section class="methods">
-            <button class="ui basic button" onclick="tiggerCustomEvent()">Create Custom Event</button>
+            <h2>Telegram URI</h2>
+            <a href="branch-nextory://open?_branch_referrer=H4sIAAAAAAAAAw3Kuw5AMBQA0L8xKtp6JWIgRhtr43GphN7maoLFt3Pmo52zZ87YYK1v4HZIjz%2FhwXrX87bR9d2NpVIjDWbSatnxUttchCLORBAnUoRpymUUcOm9BAsQbWb9N14nUFFpwgM%2BZy9yXmIAAAA%3D&link_click_id=1469406754083494431">branch-nextory://open?_branch_referrer=H4sIAAAAAAAAAw3Kuw5AMBQA0L8xKtp6JWIgRhtr43GphN7maoLFt3Pmo52zZ87YYK1v4HZIjz%2FhwXrX87bR9d2NpVIjDWbSatnxUttchCLORBAnUoRpymUUcOm9BAsQbWb9N14nUFFpwgM%2BZy9yXmIAAAA%3D&link_click_id=1469406754083494431</a> <br><br>
+            <h2>WhatsApp URI</h2>
+            <a href="branch-nextory://open?_branch_referrer=H4sIAAAAAAAAAw3Kuw5AMBQA0L8xaktVSMRAjDbWxuNSCb3N1QSLb%2BfMx3jvzpyxwbnQwu2RnnDCg%2FW%2Bj9vG1Hc3llqPNNjJ6GXHS29zIaTKJE%2B5kEmslBQq4sFLsADRZtd%2F43UCFZUhPOADbsxK%2FWIAAAA%3D&link_click_id=1469407014423395409">branch-nextory://open?_branch_referrer=H4sIAAAAAAAAAw3Kuw5AMBQA0L8xaktVSMRAjDbWxuNSCb3N1QSLb%2BfMx3jvzpyxwbnQwu2RnnDCg%2FW%2Bj9vG1Hc3llqPNNjJ6GXHS29zIaTKJE%2B5kEmslBQq4sFLsADRZtd%2F43UCFZUhPOADbsxK%2FWIAAAA%3D&link_click_id=1469407014423395409</a>
           </section>
         </div>
     </main>
